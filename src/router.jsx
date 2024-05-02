@@ -4,6 +4,7 @@ import Contact from './pages/Contact/Contact';
 import Item from './pages/Item/Item';
 import Landing from './pages/Landing/Landing';
 import Login from './pages/Login/Login';
+import NotFound from './pages/NotFound/NotFound';
 import Register from './pages/Register/Register';
 import ShowRoom from './pages/ShowRoom/ShowRoom';
 import Specs from './pages/Specs/Specs';
@@ -23,6 +24,7 @@ const routes = [
   { path: '/contact-us', element: <Contact /> },
   { path: '/check-out', element: <Contact /> },
   { path: '/Payment-info', element: <Contact /> },
+  { path: '/*', element: <NotFound /> },
   {
     path: '/motorcycle-show',
     element: <ShowRoom />,
