@@ -1,0 +1,37 @@
+import Blog from './pages/Blog/Blog';
+import BlogList from './pages/Blog/BlogList';
+import Contact from './pages/Contact/Contact';
+import Item from './pages/Item/Item';
+import Landing from './pages/Landing/Landing';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import ShowRoom from './pages/ShowRoom/ShowRoom';
+import Specs from './pages/Specs/Specs';
+import UserPanel from './pages/UserPanel/UserPanel';
+import WishList from './pages/WishList/WishList';
+
+const routes = [
+  {
+    path: '/landing',
+    element: <Landing />,
+  },
+  { path: '/register', element: <Register /> },
+  { path: '/login', element: <Login /> },
+  { path: '/UserPanel', element: <UserPanel /> },
+  { path: '/specs:name', element: <Specs /> },
+  { path: '/WishList', element: <WishList /> },
+  { path: '/contact-us', element: <Contact /> },
+  { path: '/check-out', element: <Contact /> },
+  { path: '/Payment-info', element: <Contact /> },
+  {
+    path: '/motorcycle-show',
+    element: <ShowRoom />,
+    children: [{ path: '/item:id', element: <Item /> }],
+  },
+  {
+    path: '/blogs',
+    element: <BlogList />,
+    children: [{ path: '/blog:id', element: <Blog /> }],
+  },
+];
+export default routes;
