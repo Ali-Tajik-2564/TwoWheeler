@@ -1,3 +1,12 @@
+@import url('index.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: Inner;
+  src: url('./fonts/Inter-font-fb-8767654/Fonts/Inter\ Bold\ Italic.otf');
+}
+* {
+  font-family: Inner;
+}

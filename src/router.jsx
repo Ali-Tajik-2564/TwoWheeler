@@ -13,7 +13,7 @@ import WishList from './pages/WishList/WishList';
 
 const routes = [
   {
-    path: '/landing',
+    path: '/',
     element: <Landing />,
   },
   { path: '/register', element: <Register /> },
@@ -28,12 +28,12 @@ const routes = [
   {
     path: '/motorcycle-show',
     element: <ShowRoom />,
-    children: [{ path: '/item:id', element: <Item /> }],
+    children: [{ path: 'item:id', element: <Item /> }],
   },
   {
     path: '/blogs',
     element: <BlogList />,
-    children: [{ path: '/blog:id', element: <Blog /> }],
+    children: [{ path: 'blog:id', element: <Blog /> }],
   },
 ];
 export default routes;
