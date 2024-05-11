@@ -12,8 +12,10 @@
   "dependencies": {
     "@tanstack/react-query": "^5.32.1",
     "@tanstack/react-query-devtools": "^5.32.1",
+    "bootstrap": "^5.3.3",
     "formik": "^2.4.6",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0",
     "sweetalert2": "^11.10.8"
