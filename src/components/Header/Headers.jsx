@@ -6,19 +6,19 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 export default function Headers() {
   const [show, setShow] = useState(false);
-
+  const [isLogin, setIsLogin] = useState(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <div className="w-full flex justify-between items-center px-4 h-20 bg-bgPrimary">
       {/* logo */}
-      <div className="w-44 text-textPrimary lg:text-2xl md:text-xl text-lg font-semibold  ">
+      <div className="w-44 text-textPrimary lg:text-2xl md:text-xl text-lg font-semibold  hover:brightness-90">
         <Link to={'/'}>two wheelers</Link>
       </div>
       {/* offcanvas button  */}
       <button
         onClick={handleShow}
-        className="text-bgPrimary bg-textPrimary p-2   rounded-md  md:hidden">
+        className="text-bgPrimary bg-textPrimary p-2   rounded-md  md:hidden hover:brightness-90">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -46,23 +46,38 @@ export default function Headers() {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <ul className="mx-2 flex flex-col justify-center items-end space-y-8  text-textPrimary text-lg font-semibold   ">
-            <li className=" ">
-              <Link to={'/login'} onClick={handleClose}>
-                <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md  ">
-                  Login
-                </button>
-              </Link>
+            <li className="p-2 ">
+              {/* login */}
+              {!isLogin && (
+                <Link to={'/login'} onClick={handleClose}>
+                  <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md  hover:brightness-90">
+                    Login
+                  </button>
+                </Link>
+              )}
+
+              {/* login */}
+              {/* profile */}
+              {isLogin && (
+                <Link to={'/UserPanel'} onClick={handleClose}>
+                  <img
+                    src="./Img/profile.jpg"
+                    className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "></img>
+                </Link>
+              )}
+
+              {/* profile */}
             </li>
-            <li className=" p-4 " onClick={handleClose}>
+            <li className=" p-4 hover:brightness-90" onClick={handleClose}>
               <Link to={'/contact-us'}>Contact Us</Link>
             </li>
-            <li className=" p-4" onClick={handleClose}>
+            <li className=" p-4 hover:brightness-90" onClick={handleClose}>
               <Link to={'/blogs'}>Our Blog</Link>
             </li>
-            <li className=" p-4">
+            <li className=" p-4 hover:brightness-90">
               <Link to={'/motorcycle-show'}>Motorcycles</Link>
             </li>
-            <li className=" p-4 " onClick={handleClose}>
+            <li className=" p-4 hover:brightness-90" onClick={handleClose}>
               <Link to={'/'}>Home</Link>
             </li>
           </ul>
@@ -73,23 +88,38 @@ export default function Headers() {
       {/* menu upper md size  */}
 
       <ul className="hidden md:flex flex-row-reverse justify-start items-center lg:space-x-8 space-x-2 text-textPrimary lg:text-base text-sm lg:font-semibold font-normal  ">
-        <li className=" ">
-          <Link to={'/login'}>
-            <button className="text-bgPrimary bg-textPrimary p-1 w-28  rounded-md  ">
-              Login
-            </button>
-          </Link>
+        <li className="p-4 ">
+          {/* login */}
+          {!isLogin && (
+            <Link to={'/login'} onClick={handleClose}>
+              <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md  hover:brightness-90">
+                Login
+              </button>
+            </Link>
+          )}
+
+          {/* login */}
+          {/* profile */}
+          {isLogin && (
+            <Link to={'/UserPanel'} onClick={handleClose}>
+              <img
+                src="./Img/profile.jpg"
+                className=" border-1 border-textPrimary w-16   rounded-full shadow-sm  hover:brightness-90"></img>
+            </Link>
+          )}
+
+          {/* profile */}
         </li>
-        <li className=" p-4    min-w-28 ">
+        <li className=" p-4    min-w-28  hover:brightness-90">
           <Link to={'/contact-us'}>Contact Us</Link>
         </li>
-        <li className=" p-4  min-w-28 ">
+        <li className=" p-4  min-w-28  hover:brightness-90">
           <Link to={'/blogs'}>Our Blog</Link>
         </li>
-        <li className=" p-4 min-w-28">
+        <li className=" p-4 min-w-28 hover:brightness-90">
           <Link to={'/motorcycle-show'}>Motorcycles</Link>
         </li>
-        <li className=" p-4 min-w-28">
+        <li className=" p-4 min-w-28 hover:brightness-90">
           <Link to={'/'}>Home</Link>
         </li>
       </ul>
