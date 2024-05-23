@@ -5,8 +5,20 @@
 @tailwind utilities;
 @font-face {
   font-family: Inner;
-  src: url('./fonts/Inter-font-fb-8767654/Fonts/Inter\ Bold\ Italic.otf');
+  src: url('./fonts/static/Inter-Regular.ttf');
 }
 * {
   font-family: Inner;
+}
+@layer components {
+  .lading-page {
+    background-image: linear-gradient(
+        to right,
+        rgb(37, 44, 51, 0.52),
+        rgb(255, 255, 255, 0.52)
+      ),
+      url('./../public/Img/Versys-650-2-1.jpg');
+
+    background-size: cover;
+  }
 }
