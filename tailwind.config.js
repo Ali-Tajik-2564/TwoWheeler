@@ -7,6 +7,9 @@ export default {
         textPrimary: '#D3AF37',
         bgPrimary: '#252C33',
       },
+      backgroundImage: {
+        'hero-pattern': "url('./Img/unsplash_SUTfFCAHV_A.png')",
+      },
     },
   },
   plugins: [],
