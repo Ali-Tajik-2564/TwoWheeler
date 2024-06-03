@@ -3,7 +3,7 @@ import React from 'react';
 export default function GetReadySection() {
   return (
     <div className="w-full h-96 bg-hero-pattern bg-cover">
-      <div className="w-full p-12 h-96  bg-gradient-to-r from-white/70 from-0.5% flex flex-col justify-center items-start text-bgPrimary space-y-14">
+      <div className="w-full p-12 h-96  bg-gradient-to-r from-white/75 from-1% flex flex-col justify-center items-start text-bgPrimary space-y-14">
         <div className="font-bold text-4xl">
           <p> GET READY FOR YOUR </p>
           <p> SUMMER RIDE</p>

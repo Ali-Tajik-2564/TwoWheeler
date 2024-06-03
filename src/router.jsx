@@ -1,10 +1,12 @@
 import Blog from './pages/Blog/Blog';
 import BlogList from './pages/Blog/BlogList';
+import CheckOut from './pages/CheckOut/CheckOut';
 import Contact from './pages/Contact/Contact';
 import Item from './pages/Item/Item';
 import Landing from './pages/Landing/Landing';
 import Login from './pages/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
+import Payment from './pages/Payment/Payment';
 import Register from './pages/Register/Register';
 import ShowRoom from './pages/ShowRoom/ShowRoom';
 import Specs from './pages/Specs/Specs';
@@ -22,8 +24,8 @@ const routes = [
   { path: '/specs:name', element: <Specs /> },
   { path: '/WishList', element: <WishList /> },
   { path: '/contact-us', element: <Contact /> },
-  { path: '/check-out', element: <Contact /> },
-  { path: '/Payment-info', element: <Contact /> },
+  { path: '/check-out', element: <CheckOut /> },
+  { path: '/Payment-info', element: <Payment /> },
   { path: '/*', element: <NotFound /> },
   {
     path: '/motorcycle-show',
