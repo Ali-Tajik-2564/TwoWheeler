@@ -12,6 +12,7 @@ export default {
         'show-room-link': "url('./Img/0206N-Kawasaki-Motorcycle-1.png')",
         'blogs-link': "url('./Img/unsplash_yhW0qm86dOo.png')",
         'payment-link': "url('./Img/unsplash_4ORysIjH-mY.png')",
+        'register-page': "url('./Img/DOBZLDOXNNHOTFOMLNVZQG2CHA-1.png')",
       },
     },
   },

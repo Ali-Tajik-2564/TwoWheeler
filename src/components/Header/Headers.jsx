@@ -48,17 +48,30 @@ export default function Headers() {
           <ul className="mx-2 flex flex-col justify-center items-end space-y-8  text-textPrimary text-lg font-semibold   ">
             <li className="p-2 ">
               {/* login */}
-              {!isLogin && (
+              {isLogin && (
                 <Link to={'/login'} onClick={handleClose}>
-                  <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md  hover:brightness-90">
-                    Login
+                  <button className="text-bgPrimary bg-textPrimary p-2 w-44  rounded-md  flex justify-between">
+                    <Link
+                      to={'/login'}
+                      onClick={handleClose}
+                      className="hover:text-bgPrimary/70">
+                      Login{' '}
+                    </Link>
+                    <p className="px-1">/</p>
+
+                    <Link
+                      to={'/register'}
+                      onClick={handleClose}
+                      className="hover:text-bgPrimary/70">
+                      Register
+                    </Link>
                   </button>
                 </Link>
               )}
 
               {/* login */}
               {/* profile */}
-              {isLogin && (
+              {!isLogin && (
                 <Link to={'/UserPanel'} onClick={handleClose}>
                   <img
                     src="./Img/profile.jpg"
@@ -90,17 +103,28 @@ export default function Headers() {
       <ul className="hidden md:flex flex-row-reverse justify-start items-center lg:space-x-8 space-x-2 text-textPrimary lg:text-base text-sm lg:font-semibold font-normal  ">
         <li className="p-4 ">
           {/* login */}
-          {!isLogin && (
-            <Link to={'/login'} onClick={handleClose}>
-              <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md  hover:brightness-90">
-                Login
-              </button>
-            </Link>
+          {isLogin && (
+            <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md   flex">
+              <Link
+                to={'/login'}
+                onClick={handleClose}
+                className="hover:text-bgPrimary/70">
+                Login{' '}
+              </Link>
+              <p className="px-2">/</p>
+
+              <Link
+                to={'/register'}
+                onClick={handleClose}
+                className="hover:text-bgPrimary/70">
+                Register
+              </Link>
+            </button>
           )}
 
           {/* login */}
           {/* profile */}
-          {isLogin && (
+          {!isLogin && (
             <Link to={'/UserPanel'} onClick={handleClose}>
               <img
                 src="./Img/profile.jpg"
