@@ -12,7 +12,7 @@ export default function Headers() {
   return (
     <div className="w-full flex justify-between items-center px-4 h-20 bg-bgPrimary">
       {/* logo */}
-      <div className="w-44 text-textPrimary lg:text-2xl md:text-xl text-lg font-semibold  hover:brightness-90">
+      <div className="lg:w-44 w-32 text-textPrimary lg:text-2xl  text-lg font-semibold  hover:brightness-90">
         <Link to={'/'}>two wheelers</Link>
       </div>
       {/* offcanvas button  */}
@@ -50,7 +50,7 @@ export default function Headers() {
               {/* login */}
               {isLogin && (
                 <Link to={'/login'} onClick={handleClose}>
-                  <button className="text-bgPrimary bg-textPrimary p-2 w-44  rounded-md  flex justify-between">
+                  <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md  flex justify-between">
                     <Link
                       to={'/login'}
                       onClick={handleClose}
@@ -101,17 +101,17 @@ export default function Headers() {
       {/* menu upper md size  */}
 
       <ul className="hidden md:flex flex-row-reverse justify-start items-center lg:space-x-8 space-x-2 text-textPrimary lg:text-base text-sm lg:font-semibold font-normal  ">
-        <li className="p-4 ">
+        <li className=" lg:p-4  p-3">
           {/* login */}
           {isLogin && (
-            <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md   flex">
+            <button className="text-bgPrimary bg-textPrimary p-2 lg:w-32 w-28  rounded-md   flex items-center justify-between">
               <Link
                 to={'/login'}
                 onClick={handleClose}
                 className="hover:text-bgPrimary/70">
                 Login{' '}
               </Link>
-              <p className="px-2">/</p>
+              <p>/</p>
 
               <Link
                 to={'/register'}
@@ -134,13 +134,13 @@ export default function Headers() {
 
           {/* profile */}
         </li>
-        <li className=" p-4    min-w-28  hover:brightness-90">
+        <li className=" lg:p-4 p-3    min-w-28  hover:brightness-90">
           <Link to={'/contact-us'}>Contact Us</Link>
         </li>
-        <li className=" p-4  min-w-28  hover:brightness-90">
+        <li className="  lg:p-4  p-3 min-w-28  hover:brightness-90">
           <Link to={'/blogs'}>Our Blog</Link>
         </li>
-        <li className=" p-4 min-w-28 hover:brightness-90">
+        <li className="  lg:p-4  p-3min-w-28 hover:brightness-90">
           <Link to={'/motorcycle-show'}>Motorcycles</Link>
         </li>
         <li className=" p-4 min-w-28 hover:brightness-90">

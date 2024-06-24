@@ -35,7 +35,7 @@ export default function Register() {
     <div className="w-auto h-screen flex flex-row-reverse  items-start p-0 m-0 bg-register-page bg-current">
       {/* register form */}
       {/* form header  */}
-      <div className="h-full w-6/12 flex flex-col items-start justify-evenly p-20 bg-white rounded-l-[80px] ">
+      <div className="h-full lg:w-6/12 md:w-8/12 sm:w-10/12 w-full flex flex-col items-start justify-evenly lg:p-20  p-8 lg:bg-white   bg-white/85 sm:rounded-l-[80px] ">
         <div className="flex flex-col space-y-1">
           <p className="text-2xl text-bgPrimary font-medium">
             Create an account
@@ -56,18 +56,18 @@ export default function Register() {
           <input
             type="text"
             placeholder="Full Name"
-            className="w-full outline-none focus:outline-none ring-0 focus:ring-0 border-b border-bgPrimary/50 text-bgPrimary text-lg font-normal p-1"
+            className="w-full outline-none focus:outline-none ring-0 focus:ring-0 border-b border-bgPrimary/50 text-bgPrimary text-lg font-normal p-1 bg-transparent"
           />
           <input
             type="email"
             placeholder="Email"
-            className="w-full outline-none focus:outline-none ring-0 focus:ring-0 border-b border-bgPrimary/50 text-bgPrimary text-lg font-normal p-1"
+            className="w-full outline-none focus:outline-none ring-0 focus:ring-0 border-b border-bgPrimary/50 text-bgPrimary text-lg font-normal p-1 bg-transparent"
           />
           <div className="w-full flex items-center border-b border-bgPrimary/50 p-1">
             <input
               type={visibilityPassword ? 'text' : 'password'}
               placeholder="Password"
-              className="w-full outline-none focus:outline-none ring-0 focus:ring-0  text-bgPrimary text-lg font-normal "
+              className="w-full outline-none focus:outline-none ring-0 focus:ring-0  text-bgPrimary text-lg font-normal  bg-transparent"
             />
             {visibilityPassword ? (
               <MdVisibility
@@ -86,7 +86,7 @@ export default function Register() {
               type={visibilityConfirmPassword ? 'text' : 'password'}
               placeholder="Confirm Password"
               onClick={handleConfirmPasswordShow}
-              className="w-full outline-none focus:outline-none ring-0 focus:ring-0   text-bgPrimary text-lg font-normal "
+              className="w-full outline-none focus:outline-none ring-0 focus:ring-0   text-bgPrimary text-lg font-normal bg-transparent"
             />
             {visibilityConfirmPassword ? (
               <MdVisibility
@@ -103,8 +103,12 @@ export default function Register() {
         </div>
         {/* inputs */}
         {/* terms and button */}
-        <div className="flex item space-x-5 text-bgPrimary font-normal text-base">
-          <input type="checkbox" onClick={handleAgreeTerms} />
+        <div className="flex item space-x-5 text-bgPrimary font-normal text-sm">
+          <input
+            type="checkbox"
+            onClick={handleAgreeTerms}
+            className="bg-transparent"
+          />
           <p>I agree to store’s Terms and Conditions</p>
         </div>
         <button className="mx-auto w-72 h-12 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-lg ">
