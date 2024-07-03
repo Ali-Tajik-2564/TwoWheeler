@@ -23,22 +23,22 @@ Category =>
 
 
 Brand => 
-1. Get Brand => {name , id}
-2. Post new Brand => {name }
+1. Get Brand => {name ,icon , id}
+2. Post new Brand => {name , icon}
 3. Delete Brand => {name or id}
 
 
 
 Product 
-1 GetAll => {id , name , status => {used , new} , price , stock , color => {} , brand , date of production , pics => {} , code}
+1 GetAll => {id , name , status => {used , new} , price , stock , color => {} , brand , brand icon , date of production , pics => {} , code}
 
 
 1 GetOneProduct => {id }
 
-2. Post => {id , name , status => {used , new} , price , stock , color => {} , brand , date of production , pics => {} , code}
+2. Post => {id , name , status => {used , new} , price , stock , color => {} , brand, brand icon , date of production , pics => {} , code}
 
 
-3. Put (update) => {id , name , status => {used , new} , price , stock , color => {} , brand , date of production , pics => {} , code}
+3. Put (update) => {id , name , status => {used , new} , price , stock , color => {} , brand ,brand icon , date of production , pics => {} , code}
 
 4. Delete => {id or name}
 
@@ -46,3 +46,13 @@ Product
 
 Payment 
 1. Post => { id , FullName , price , product id }
+
+
+
+ARTICLE
+
+1.GetAll => {id,title, des,compeleted,published ,Html element , pic}
+2.Get one article by id =>{id}
+3.Post => {title, des,compeleted,published ,Html element , pic}
+4.Put=> {id,title, des,compeleted,published ,Html element , pic}
+5.delete => {id}
