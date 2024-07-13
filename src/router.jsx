@@ -33,7 +33,7 @@ const routes = [
     children: [{ path: 'item:id', element: <Item /> }],
   },
   {
-    path: '/blogs',
+    path: '/blogs/:page',
     element: <BlogList />,
     children: [{ path: 'blog:id', element: <Blog /> }],
   },

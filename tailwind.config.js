@@ -13,6 +13,7 @@ export default {
         'blogs-link': "url('./Img/unsplash_yhW0qm86dOo.png')",
         'payment-link': "url('./Img/unsplash_4ORysIjH-mY.png')",
         'register-page': "url('./Img/DOBZLDOXNNHOTFOMLNVZQG2CHA-1.png')",
+        'article-page': "url('../../../Img/1227958138.png')",
       },
     },
   },

@@ -85,7 +85,7 @@ export default function Headers() {
               <Link to={'/contact-us'}>Contact Us</Link>
             </li>
             <li className=" p-4 hover:brightness-90" onClick={handleClose}>
-              <Link to={'/blogs'}>Our Blog</Link>
+              <Link to={'/blogs/1'}>Our Blog</Link>
             </li>
             <li className=" p-4 hover:brightness-90">
               <Link to={'/motorcycle-show'}>Motorcycles</Link>
@@ -138,7 +138,7 @@ export default function Headers() {
           <Link to={'/contact-us'}>Contact Us</Link>
         </li>
         <li className="  lg:p-4  p-3 min-w-28  hover:brightness-90">
-          <Link to={'/blogs'}>Our Blog</Link>
+          <Link to={'/blogs/1'}>Our Blog</Link>
         </li>
         <li className="  lg:p-4  p-3min-w-28 hover:brightness-90">
           <Link to={'/motorcycle-show'}>Motorcycles</Link>
