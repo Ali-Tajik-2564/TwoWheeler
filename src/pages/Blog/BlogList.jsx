@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ArticleBox from '../../components/ArticleBox/ArticleBox';
 import Pagination from '../../components/Pagination/Pagination';
+import { Link } from 'react-router-dom';
 
 export default function BlogList() {
   const [article, setArticle] = useState([
@@ -28,9 +29,12 @@ export default function BlogList() {
   ]);
   const [ShownArticle, setShownArticle] = useState([]);
   return (
-    <div className="bg-article-page  bg-cover w-full h-auto flex item-center justify-center py-5">
-      <div className="w-4/5 h-auto bg-white  px-4 py-7">
-        <ArticleBox />
+    <div className="bg-article-page  bg-contain w-full h-auto flex item-center justify-center py-5 ">
+      <div className="md:w-4/5 w-10/12 h-auto bg-white  px-4 py-7  ">
+        <Link to="/blog:id">
+          <ArticleBox />
+        </Link>
+
         <ArticleBox />
         <ArticleBox />
         <ArticleBox />
