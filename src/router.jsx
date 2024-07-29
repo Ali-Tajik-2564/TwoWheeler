@@ -11,7 +11,6 @@ import Register from './pages/Register/Register';
 import ShowRoom from './pages/ShowRoom/ShowRoom';
 import Specs from './pages/Specs/Specs';
 import UserPanel from './pages/UserPanel/UserPanel';
-import WishList from './pages/WishList/WishList';
 
 const routes = [
   {
@@ -22,20 +21,19 @@ const routes = [
   { path: '/login', element: <Login /> },
   { path: '/UserPanel', element: <UserPanel /> },
   { path: '/specs:name', element: <Specs /> },
-  { path: '/WishList', element: <WishList /> },
   { path: '/contact-us', element: <Contact /> },
   { path: '/check-out', element: <CheckOut /> },
   { path: '/Payment-info', element: <Payment /> },
   { path: '/*', element: <NotFound /> },
   {
-    path: '/motorcycle-show',
+    path: '/motorcycle-show/:page',
     element: <ShowRoom />,
-    children: [{ path: 'item:id', element: <Item /> }],
   },
+  { path: '/item/:id', element: <Item /> },
   {
     path: '/blogs/:page',
     element: <BlogList />,
-    children: [{ path: 'blog:id', element: <Blog /> }],
   },
+  { path: '/blog/:id', element: <Blog /> },
 ];
 export default routes;

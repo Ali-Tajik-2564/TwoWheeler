@@ -29,20 +29,20 @@ export default function BlogList() {
   ]);
   const [ShownArticle, setShownArticle] = useState([]);
   return (
-    <div className="bg-article-page  bg-contain w-full h-auto flex item-center justify-center py-5 ">
-      <div className="md:w-4/5 w-10/12 h-auto bg-white  px-4 py-7  ">
-        <Link to="/blog:id">
+    <div className="bg-articles-page  bg-cover w-full h-auto flex item-center justify-center py-5 ">
+      <div className="md:w-4/5 w-10/12 h-auto bg-white/80  px-4 py-7  ">
+        <Link to="/blog/1">
           <ArticleBox />
         </Link>
-
-        <ArticleBox />
-        <ArticleBox />
-        <ArticleBox />
-        <ArticleBox />
-        <ArticleBox />
-        <ArticleBox />
-        <ArticleBox />
-        <ArticleBox />
+        <Link to="/blog/2">
+          <ArticleBox />
+        </Link>
+        <Link to="/blog/3">
+          <ArticleBox />
+        </Link>
+        <Link to="/blog/4">
+          <ArticleBox />
+        </Link>
 
         <Pagination
           pathname="/blogs"
