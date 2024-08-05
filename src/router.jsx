@@ -23,7 +23,7 @@ const routes = [
   { path: '/specs:name', element: <Specs /> },
   { path: '/contact-us', element: <Contact /> },
   { path: '/check-out', element: <CheckOut /> },
-  { path: '/Payment-info', element: <Payment /> },
+  { path: '/Payment-info/:id', element: <Payment /> },
   { path: '/*', element: <NotFound /> },
   {
     path: '/motorcycle-show/:page',
