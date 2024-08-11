@@ -72,7 +72,7 @@ export default function Headers() {
               {/* login */}
               {/* profile */}
               {!isLogin && (
-                <Link to={'/UserPanel'} onClick={handleClose}>
+                <Link to={'/UserPanel/1'} onClick={handleClose}>
                   <img
                     src="./Img/profile.jpg"
                     className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "></img>
