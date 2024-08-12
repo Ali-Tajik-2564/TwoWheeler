@@ -1,0 +1,47 @@
+{
+  "product": [
+    {
+      "id": "1",
+      "name": "rc360",
+      "status": "used",
+      "price": "27.000",
+      "stock": "1",
+      "color": "blue",
+      "brand": "yamaha",
+      "dateOfProduction": "2007",
+      "pics": {},
+      "code": "asdfasdf"
+    }
+  ],
+  "category": [{ "id": "1", "name": "Raising" }],
+  "brand": [{ "id": "1", "text": "Raising", "icon": "./Img/..///" }],
+  "payment": [
+    {
+      "id": "1",
+      "fullName": "Raising",
+      "price": "27.000",
+      "productID": "./Img/..///"
+    }
+  ],
+  "users": [
+    {
+      "id": "1212",
+      "fullName": "",
+      "email": "ali.1385.tajik.a@gamil.com",
+      "password": "",
+      "profile": "",
+      "orderHistory": ""
+    }
+  ],
+  "article": [
+    {
+      "id": "1212",
+      "title": "",
+      "desc": "ali.1385.tajik.a@gamil.com",
+      "completed": "",
+      "published": "",
+      "pic": "",
+      "body": ""
+    }
+  ]
+}

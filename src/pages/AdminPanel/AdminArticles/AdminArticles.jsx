@@ -18,14 +18,14 @@ export default function AdminArticles() {
   return (
     <div className="w-[95%] mx-auto p-1 text-right">
       <div>
-        <h1 className="text-xl font-semibold text-mainPrimary w-full border-b border-mainPrimaryLight pb-3">
+        <h1 className="text-xl font-semibold text-textPrimary  w-full border-b border-bgPrimary/70 pb-3">
           اضافه کردن مقاله جدید
         </h1>
         <div className="     my-5 flex flex-row-reverse flex-wrap justify-between items-center gap-5">
           <div>
             <label
               htmlFor="name"
-              className="text-lg font-thin text-mainPrimaryLight">
+              className="text-lg font-thin text-textPrimary ">
               {' '}
               : نام مقاله{' '}
             </label>
@@ -34,13 +34,13 @@ export default function AdminArticles() {
               type="text"
               name="name"
               id="title"
-              className="w-full p-1 px-2 bg-primaryText text-mainPrimary font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
+              className="w-full p-1 px-2 bg-bgPrimary text-textPrimary  font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
             />
           </div>
           <div className="flex flex-col">
             <label
               htmlFor="password"
-              className="text-lg font-thin text-mainPrimaryLight">
+              className="text-lg font-thin text-textPrimary ">
               {' '}
               : عکس مقله
             </label>
@@ -48,7 +48,7 @@ export default function AdminArticles() {
               type="file"
               dir="rtl"
               name="password"
-              className="max-w-[20rem] p-1 px-2 bg-primaryText text-mainPrimary font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
+              className="max-w-[20rem] p-1 px-2 bg-bgPrimary text-textPrimary  font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
               onChange={(event) => {
                 setArticleCover(event.target.files[0]);
               }}
@@ -57,7 +57,7 @@ export default function AdminArticles() {
           <div>
             <label
               htmlFor="name"
-              className="text-lg font-thin text-mainPrimaryLight">
+              className="text-lg font-thin text-textPrimary ">
               {' '}
               : تگ اصلی مقاله{' '}
             </label>
@@ -66,13 +66,13 @@ export default function AdminArticles() {
               type="text"
               name="name"
               id="tags"
-              className="w-full p-1 px-2 bg-primaryText text-mainPrimary font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
+              className="w-full p-1 px-2 bg-bgPrimary text-textPrimary  font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
             />
           </div>
           <div>
             <label
               htmlFor="name"
-              className="text-lg font-thin text-mainPrimaryLight">
+              className="text-lg font-thin text-textPrimary ">
               {' '}
               : چکیده مقاله{' '}
             </label>
@@ -81,7 +81,7 @@ export default function AdminArticles() {
               type="text"
               name="name"
               id="desc"
-              className="w-full p-1 px-2 bg-primaryText text-mainPrimary font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
+              className="w-full p-1 px-2 bg-bgPrimary text-textPrimary  font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
             />
           </div>
           <div className="w-full mx-auto">
@@ -89,7 +89,7 @@ export default function AdminArticles() {
           </div>
           <div>
             <button
-              className="text-lg font-medium mt-4 py-2 px-5 rounded-md  "
+              className=" mt-4 py-2 px-5 rounded-md   bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base "
               type="submit"
               onClick={useArticle}>
               <span>ثبت مقاله</span>
@@ -98,13 +98,13 @@ export default function AdminArticles() {
         </div>
       </div>
       <div>
-        <h1 className="text-xl font-semibold text-mainPrimary w-full border-b border-mainPrimaryLight pb-3">
+        <h1 className="text-xl font-semibold text-textPrimary  w-full border-b border-bgPrimary/70 pb-3">
           {' '}
           مقاله ها
         </h1>
         <table className="w-full my-4 ">
           <thead>
-            <tr className="p-3  md:text-lg text-base  font-medium text-mainPrimary flex justify-between items-center flex-row-reverse border-b-2 mb-3">
+            <tr className="p-3  md:text-lg text-base  font-medium text-textPrimary flex justify-between items-center flex-row-reverse border-b-2 border-bgPrimary/70 mb-3">
               <td>نام مقاله</td>
               <td>تگ مقاله </td>
               <td>خلاصه مقاله</td>
@@ -112,14 +112,14 @@ export default function AdminArticles() {
             </tr>
           </thead>
           <tbody>
-            <tr className="p-2 text-sm md:text-base font-light  flex justify-between items-center flex-row-reverse">
+            <tr className="p-2 text-sm md:text-base font-light  flex justify-between items-center flex-row-reverse text-textPrimary">
               <td>گوشی های جدید ۲۰۲۳</td>
               <td>گوشی موبایل</td>
 
-              <td className=" bg-mainPrimaryLight hover:bg-mainPrimary text-primaryText p-1 px-2 rounded-sm text-sm md:text-base">
+              <td className=" bg-mainPrimary hover:bg-bgPrimary/70  p-1 px-2 rounded-sm text-sm md:text-base">
                 <button>مشاهده خلاصه</button>
               </td>
-              <td className=" bg-mainPrimaryLight hover:bg-mainPrimary text-primaryText p-1 px-2 rounded-sm text-sm md:text-base">
+              <td className=" bg-mainPrimary hover:bg-bgPrimary/70  p-1 px-2 rounded-sm text-sm md:text-base">
                 <button>حذف مقاله</button>
               </td>
             </tr>
