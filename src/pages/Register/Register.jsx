@@ -1,14 +1,71 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdVisibility } from 'react-icons/md';
 import { MdVisibilityOff } from 'react-icons/md';
+import userSchema from './../../Validation/Validation';
+import Swal from 'sweetalert2';
 export default function Register() {
   const [visibilityPassword, setVisibilityPassword] = useState(false);
-  const [visibilityConfirmPassword, setVisibilityConfirmPassword] =
-    useState(false);
-  const [isRegistered, setIsRegistered] = useState(true);
-  const [agreeTerms, setAgreeTerms] = useState(false);
-  console.log(agreeTerms);
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [agreedTerms, setAgreeTerms] = useState(false);
+  const [isValid, setIsValid] = useState(false);
+  const [error, setErrors] = useState({});
+  const [FullName, setFullName] = useState(null);
+  const [Email, setEmail] = useState(null);
+  const [Password, setPassword] = useState(null);
+
+  const InputValidation = async (event) => {
+    event.preventDefault();
+    let user = {
+      fullName: FullName,
+      email: Email,
+      password: Password,
+    };
+    try {
+      const isvalid = await userSchema.validate(user, {
+        abortEarly: false,
+      });
+      setIsValid(isvalid);
+    } catch (err) {
+      let errors = err.inner.reduce(
+        (acc, err) => ({
+          ...acc,
+          [err.path]: err.message,
+        }),
+        {}
+      );
+      setErrors(errors);
+    }
+  };
+
+  const submitUser = () => {
+    let user = {
+      id: '6',
+      fullName: FullName,
+      email: Email,
+      password: Password,
+      profile: '',
+      orderHistory: [],
+    };
+
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result) {
+          Swal.fire({
+            title: 'Registration was successful',
+            icon: 'success',
+            confirmButtonText: 'let brows the products',
+          }).then(() => {
+            setIsRegistered(true);
+          });
+        }
+      });
+  };
   const handlePasswordShow = () => {
     if (visibilityPassword) {
       setVisibilityPassword(false);
@@ -16,20 +73,13 @@ export default function Register() {
       setVisibilityPassword(true);
     }
   };
-  const handleConfirmPasswordShow = () => {
-    if (visibilityConfirmPassword) {
-      setVisibilityConfirmPassword(false);
-    } else {
-      setVisibilityConfirmPassword(true);
-    }
-  };
+
   const handleAgreeTerms = () => {
-    if (agreeTerms) {
+    if (agreedTerms) {
       setAgreeTerms(false);
     } else {
       setAgreeTerms(true);
     }
-    console.log(agreeTerms);
   };
 
   return (
@@ -57,19 +107,37 @@ export default function Register() {
           <div className="w-full h-auto flex flex-col items-center justify-between space-y-4">
             <input
               type="text"
+              value={FullName}
               placeholder="Full Name"
               className="w-full outline-none focus:outline-none ring-0 focus:ring-0 border-b border-bgPrimary/50 text-bgPrimary text-lg font-normal p-1 bg-transparent"
+              onChange={(e) => {
+                setFullName(e.target.value);
+
+                InputValidation(e);
+              }}
             />
             <input
               type="email"
+              value={Email}
               placeholder="Email"
               className="w-full outline-none focus:outline-none ring-0 focus:ring-0 border-b border-bgPrimary/50 text-bgPrimary text-lg font-normal p-1 bg-transparent"
+              onChange={(e) => {
+                setEmail(e.target.value);
+
+                InputValidation(e);
+              }}
             />
             <div className="w-full flex items-center border-b border-bgPrimary/50 p-1">
               <input
                 type={visibilityPassword ? 'text' : 'password'}
+                value={Password}
                 placeholder="Password"
                 className="w-full outline-none focus:outline-none ring-0 focus:ring-0  text-bgPrimary text-lg font-normal  bg-transparent"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+
+                  InputValidation(e);
+                }}
               />
               {visibilityPassword ? (
                 <MdVisibility
@@ -80,25 +148,6 @@ export default function Register() {
                 <MdVisibilityOff
                   className="text-bgPrimary/50 w-6 h-6 hover:cursor-pointer"
                   onClick={handlePasswordShow}
-                />
-              )}
-            </div>
-            <div className="w-full flex items-center border-b border-bgPrimary/50 p-1">
-              <input
-                type={visibilityConfirmPassword ? 'text' : 'password'}
-                placeholder="Confirm Password"
-                onClick={handleConfirmPasswordShow}
-                className="w-full outline-none focus:outline-none ring-0 focus:ring-0   text-bgPrimary text-lg font-normal bg-transparent"
-              />
-              {visibilityConfirmPassword ? (
-                <MdVisibility
-                  className="text-bgPrimary/50 w-6 h-6 hover:cursor-pointer"
-                  onClick={handleConfirmPasswordShow}
-                />
-              ) : (
-                <MdVisibilityOff
-                  className="text-bgPrimary/50 w-6 h-6 hover:cursor-pointer"
-                  onClick={handleConfirmPasswordShow}
                 />
               )}
             </div>
@@ -113,7 +162,10 @@ export default function Register() {
             />
             <p>I agree to store’s Terms and Conditions</p>
           </div>
-          <button className="mx-auto w-72 h-12 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-lg ">
+          <button
+            className="mx-auto w-72 h-12 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-lg disabled:bg-textPrimary/70 disabled:hover:bg-textPrimary/70"
+            disabled={!isValid}
+            onClick={submitUser}>
             Register Account
           </button>
           {/* terms and button */}
@@ -134,7 +186,7 @@ export default function Register() {
             verification.
           </p>
           <button className="mx-auto w-72 h-12 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-lg ">
-            Done
+            <Link to="/">Done</Link>
           </button>{' '}
           {/* Registration message */}
         </div>
