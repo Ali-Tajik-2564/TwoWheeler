@@ -1,11 +1,63 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdVisibility } from 'react-icons/md';
 import { MdVisibilityOff } from 'react-icons/md';
-
+import { LoginUserSchema } from '../../Validation/Validation';
+import Swal from 'sweetalert2';
 export default function Login() {
   const [visibilityPassword, setVisibilityPassword] = useState(false);
+  const navigate = useNavigate();
+  const [Email, setEmail] = useState(null);
+  const [Password, setPassword] = useState(null);
+  const [isValid, setIsValid] = useState(false);
+  const [error, setErrors] = useState({});
+  const InputValidation = async (event) => {
+    event.preventDefault();
+    let user = {
+      email: Email,
+      password: Password,
+    };
+    try {
+      const isvalid = await LoginUserSchema.validate(user, {
+        abortEarly: false,
+      });
+      setIsValid(isvalid);
+      setErrors('');
+    } catch (err) {
+      let errors = err.inner.reduce(
+        (acc, err) => ({
+          ...acc,
+          [err.path]: err.message,
+        }),
+        {}
+      );
+      setErrors(errors);
+    }
+  };
 
+  const LoginUser = (event) => {
+    event.preventDefault();
+
+    fetch(`http://localhost:3000/users?email=${Email}&password=${Password}`)
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.length !== 0) {
+          Swal.fire({
+            title: 'Login was successful',
+            icon: 'success',
+            confirmButtonText: 'let brows the products',
+          }).then(() => {
+            navigate('/');
+          });
+        } else {
+          Swal.fire({
+            title: "we could'nt find a user with this password and email",
+            icon: 'warning',
+            confirmButtonText: 'ok lets try again',
+          });
+        }
+      });
+  };
   const handlePasswordShow = () => {
     if (visibilityPassword) {
       setVisibilityPassword(false);
@@ -36,18 +88,30 @@ export default function Login() {
         {/* form header  */}
         {/* inputs */}
 
-        <div className="w-full h-auto flex flex-col items-center justify-between space-y-4">
+        <div className="w-full h-auto flex flex-col items-start justify-between space-y-4">
           <input
             type="email"
             placeholder="Email"
             className="w-full outline-none focus:outline-none ring-0 focus:ring-0 border-b border-bgPrimary/50 text-bgPrimary text-lg font-normal p-1 bg-transparent"
+            onChange={(event) => {
+              setEmail(event.target.value);
+
+              InputValidation(event);
+            }}
           />
-          <div className="w-full flex flex-col items-center justify-start">
+          <p className="text-base font-normal text-rose-900 text-start">
+            {error.email && Email ? error.email : ''}
+          </p>
+          <div className="w-full flex flex-col items-start justify-start">
             <div className="w-full flex items-center border-b border-bgPrimary/50 p-1">
               <input
                 type={visibilityPassword ? 'text' : 'password'}
                 placeholder="Password"
                 className="w-full outline-none focus:outline-none ring-0 focus:ring-0  text-bgPrimary text-lg font-normal  bg-transparent"
+                onChange={(event) => {
+                  InputValidation(event);
+                  setPassword(event.target.value);
+                }}
               />
               {visibilityPassword ? (
                 <MdVisibility
@@ -61,6 +125,13 @@ export default function Login() {
                 />
               )}
             </div>
+            {error.password && Password ? (
+              <p className="text-base font-normal text-rose-900 text-start">
+                {error.password}
+              </p>
+            ) : (
+              InputValidation
+            )}
             <p className="text-sm font-normal ml-auto">
               Click
               <span
@@ -75,7 +146,10 @@ export default function Login() {
         {/* inputs */}
         {/* terms and button */}
 
-        <button className="mx-auto w-72 h-12 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-lg ">
+        <button
+          className="mx-auto w-72 h-12 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-lg disabled:bg-textPrimary/70 disabled:hover:bg-textPrimary/70 "
+          disabled={!isValid}
+          onClick={(e) => LoginUser(e)}>
           Login
         </button>
         {/* terms and button */}

@@ -187,7 +187,7 @@
       "id": "2",
       "fullName": "ali tajik",
       "email": "ali.1385.tajik.a@gamil.com",
-      "password": "123456",
+      "password": "ali1385",
       "profile": "../Img/profile.jpg",
       "orderHistory": [
         {
@@ -197,110 +197,6 @@
           "status": "send"
         }
       ]
-    },
-    {
-      "id": "6",
-      "fullName": "fdgdfgdfgsdfsdf",
-      "email": "sdfsdfsdf@gamil.com",
-      "password": "sdfsdf",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "fdgdfgdfgsdfsdf",
-      "email": "sdfsdfsdf@gamil.com",
-      "password": "sdfsdf",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "fdgdfgdfgsdfsdf",
-      "email": "sdfsdfsdf@gamil.com",
-      "password": "sdfsdf",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "alitajik",
-      "email": "alitajik@gamil.com",
-      "password": "12325",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "alitajik",
-      "email": "alitajik@gamil.com",
-      "password": "12325",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "alitajik",
-      "email": "alitsdfajik@gamil.com",
-      "password": "12325",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "alitajik",
-      "email": "alitsdfajik@gamil.com",
-      "password": "12325",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "alitajik",
-      "email": "alitsdfajik@gamil.com",
-      "password": "12325",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "alitajik",
-      "email": "alitsdfajik@gamil.com",
-      "password": "12325",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "alitajik",
-      "email": "dsfsdf",
-      "password": "12325",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "alitajik",
-      "email": "dsfsdf",
-      "password": "12325",
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": null,
-      "email": null,
-      "password": null,
-      "profile": "",
-      "orderHistory": []
-    },
-    {
-      "id": "6",
-      "fullName": "sdfsdfssdfsd",
-      "email": "fsdfsdfsf@gmail.com",
-      "password": "dsdfsdf",
-      "profile": "",
-      "orderHistory": []
     }
   ],
   "article": [

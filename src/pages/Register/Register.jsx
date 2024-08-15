@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdVisibility } from 'react-icons/md';
 import { MdVisibilityOff } from 'react-icons/md';
-import userSchema from './../../Validation/Validation';
+import { userSchema } from './../../Validation/Validation';
 import Swal from 'sweetalert2';
 export default function Register() {
   const [visibilityPassword, setVisibilityPassword] = useState(false);
@@ -26,6 +26,7 @@ export default function Register() {
         abortEarly: false,
       });
       setIsValid(isvalid);
+      setErrors('');
     } catch (err) {
       let errors = err.inner.reduce(
         (acc, err) => ({
@@ -40,7 +41,6 @@ export default function Register() {
 
   const submitUser = () => {
     let user = {
-      id: '6',
       fullName: FullName,
       email: Email,
       password: Password,
@@ -104,7 +104,7 @@ export default function Register() {
           </div>
           {/* form header  */}
           {/* inputs */}
-          <div className="w-full h-auto flex flex-col items-center justify-between space-y-4">
+          <div className="w-full h-auto flex flex-col items-start justify-between space-y-4">
             <input
               type="text"
               value={FullName}
@@ -116,6 +116,10 @@ export default function Register() {
                 InputValidation(e);
               }}
             />
+            <p className="text-base font-normal text-rose-900 text-start">
+              {error.fullName && FullName ? error.fullName : ''}
+            </p>
+
             <input
               type="email"
               value={Email}
@@ -127,6 +131,10 @@ export default function Register() {
                 InputValidation(e);
               }}
             />
+            <p className="text-base font-normal text-rose-900 text-start">
+              {error.email && Email ? error.email : ''}
+            </p>
+
             <div className="w-full flex items-center border-b border-bgPrimary/50 p-1">
               <input
                 type={visibilityPassword ? 'text' : 'password'}
@@ -151,6 +159,9 @@ export default function Register() {
                 />
               )}
             </div>
+            <p className="text-base font-normal text-rose-900 text-start">
+              {error.password && Password ? error.password : ''}
+            </p>
           </div>
           {/* inputs */}
           {/* terms and button */}
