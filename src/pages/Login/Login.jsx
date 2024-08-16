@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdVisibility } from 'react-icons/md';
 import { MdVisibilityOff } from 'react-icons/md';
 import { LoginUserSchema } from '../../Validation/Validation';
 import Swal from 'sweetalert2';
+import AuthContext from '../../Contexts/AuthContext';
 export default function Login() {
   const [visibilityPassword, setVisibilityPassword] = useState(false);
   const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
   const [Email, setEmail] = useState(null);
   const [Password, setPassword] = useState(null);
   const [isValid, setIsValid] = useState(false);
@@ -42,6 +44,8 @@ export default function Login() {
       .then((res) => res.json())
       .then((result) => {
         if (result.length !== 0) {
+          authContext.login({}, result[0].id);
+
           Swal.fire({
             title: 'Login was successful',
             icon: 'success',

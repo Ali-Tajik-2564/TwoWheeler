@@ -3,12 +3,97 @@
     {
       "id": "5",
       "name": "rc360",
+      "status": "new",
+      "price": "27.000",
+      "stock": "1",
+      "color": "blue",
+      "brand": "ducati",
+      "category": "off road",
+      "dateOfProduction": "2007",
+      "pics": [
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
+        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
+      ],
+      "code": "Ba3625YK3"
+    },
+    {
+      "id": "",
+      "name": "rc360",
+      "status": "new",
+      "price": "27.000",
+      "stock": "1",
+      "color": "blue",
+      "brand": "ducati",
+      "category": "off road",
+      "dateOfProduction": "2007",
+      "pics": [
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
+        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
+      ],
+      "code": "Ba3625YK3"
+    },
+    {
+      "id": "7",
+      "name": "rc360",
+      "status": "new",
+      "price": "27.000",
+      "stock": "1",
+      "color": "blue",
+      "brand": "ducati",
+      "category": "off road",
+      "dateOfProduction": "2007",
+      "pics": [
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
+        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
+      ],
+      "code": "Ba3625YK3"
+    },
+    {
+      "id": "8",
+      "name": "rc360",
+      "status": "new",
+      "price": "27.000",
+      "stock": "1",
+      "color": "blue",
+      "brand": "triumph",
+      "category": "off road",
+      "dateOfProduction": "2007",
+      "pics": [
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
+        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
+      ],
+      "code": "Ba3625YK3"
+    },
+    {
+      "id": "9",
+      "name": "rc360",
+      "status": "new",
+      "price": "27.000",
+      "stock": "1",
+      "color": "blue",
+      "brand": "triumph",
+      "category": "off road",
+      "dateOfProduction": "2007",
+      "pics": [
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
+        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
+        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
+      ],
+      "code": "Ba3625YK3"
+    },
+    {
+      "id": "10",
+      "name": "rb35",
       "status": "used",
       "price": "27.000",
       "stock": "1",
       "color": "blue",
-      "brand": "yamaha",
-      "category": "Raising",
+      "brand": "triumph",
+      "category": "off road",
       "dateOfProduction": "2007",
       "pics": [
         "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
@@ -24,8 +109,8 @@
       "price": "27.000",
       "stock": "1",
       "color": "blue",
-      "brand": "yamaha",
-      "category": "Raising",
+      "brand": "triumph",
+      "category": "touring",
       "dateOfProduction": "2007",
       "pics": [
         "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
@@ -42,7 +127,7 @@
       "stock": "1",
       "color": "blue",
       "brand": "yamaha",
-      "category": "Raising",
+      "category": "sport",
       "dateOfProduction": "2007",
       "pics": [
         "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
@@ -59,7 +144,7 @@
       "stock": "1",
       "color": "blue",
       "brand": "yamaha",
-      "category": "Raising",
+      "category": "sport",
       "dateOfProduction": "2007",
       "pics": [
         "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
@@ -76,7 +161,7 @@
       "stock": "1",
       "color": "blue",
       "brand": "yamaha",
-      "category": "Raising",
+      "category": "sport",
       "dateOfProduction": "2007",
       "pics": [
         "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
@@ -89,15 +174,15 @@
   "category": [
     {
       "id": "1",
-      "name": "Raising"
+      "name": "sport"
     },
     {
       "id": "3",
-      "name": "economy"
+      "name": "touring"
     },
     {
       "id": "2",
-      "name": "travel"
+      "name": "off road"
     }
   ],
   "brand": [
@@ -197,11 +282,71 @@
           "status": "send"
         }
       ]
+    },
+    {
+      "id": "9d81",
+      "fullName": "mohammad",
+      "email": "mohammad@gamil.com",
+      "password": "123879",
+      "profile": "",
+      "orderHistory": []
+    },
+    {
+      "id": "87bc",
+      "fullName": "mohammad",
+      "email": "mohammad@gamil.com",
+      "password": "123879",
+      "profile": "",
+      "orderHistory": []
+    },
+    {
+      "id": "f4d4",
+      "fullName": "alireza",
+      "email": "alireza@gamil.com",
+      "password": "165498",
+      "profile": "",
+      "orderHistory": []
     }
   ],
   "article": [
     {
       "id": "1",
+      "title": "yamaha or harly?",
+      "desc": "looking at different point of each brand in each category",
+      "completed": "true",
+      "published": "true",
+      "pic": "./Img/unsplash_NhZtol0U0dE.png",
+      "body": "<p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p><p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p><p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p>"
+    },
+    {
+      "id": "8",
+      "title": "yamaha or harly?",
+      "desc": "looking at different point of each brand in each category",
+      "completed": "true",
+      "published": "true",
+      "pic": "./Img/unsplash_NhZtol0U0dE.png",
+      "body": "<p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p><p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p><p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p>"
+    },
+    {
+      "id": "7",
+      "title": "yamaha or harly?",
+      "desc": "looking at different point of each brand in each category",
+      "completed": "true",
+      "published": "true",
+      "pic": "./Img/unsplash_NhZtol0U0dE.png",
+      "body": "<p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p><p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p><p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p>"
+    },
+    {
+      "id": "9",
+      "title": "yamaha or harly?",
+      "desc": "looking at different point of each brand in each category",
+      "completed": "true",
+      "published": "true",
+      "pic": "./Img/unsplash_NhZtol0U0dE.png",
+      "body": "<p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p><p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p><p>Viverra nec convallis cubilia aenean consectetur. Faucibus quis magna phasellus quam donec dis. Nibh enim torquent inceptos feugiat mattis natoque ligula. Nibh facilisis auctor mattis platea; primis egestas elit. Ipsum pharetra finibus hendrerit feugiat laoreet dictum; augue arcu. Vestibulum tempor laoreet praesent facilisi placerat efficitur duis torquent. Aliquet sollicitudin dignissim ante lacinia ornare nascetur volutpat leo. Nam aenean metus leo quis rhoncus sagittis. Lacus hendrerit pharetra senectus vulputate tristique ultrices maecenas curae.</p>"
+    },
+    {
+      "id": "6",
       "title": "yamaha or harly?",
       "desc": "looking at different point of each brand in each category",
       "completed": "true",

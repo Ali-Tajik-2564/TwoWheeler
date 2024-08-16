@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
+import AuthContext from '../../Contexts/AuthContext';
 export default function Headers() {
   const [show, setShow] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const authContext = useContext(AuthContext);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   return (
     <div className="w-full flex justify-between items-center px-4 h-20 bg-bgPrimary">
       {/* logo */}
@@ -48,7 +49,7 @@ export default function Headers() {
           <ul className="mx-2 flex flex-col justify-center items-end space-y-8  text-textPrimary text-lg font-semibold   ">
             <li className="p-2 ">
               {/* login */}
-              {isLogin && (
+              {!authContext.isLoggedIn ? (
                 <Link to={'/login'} onClick={handleClose}>
                   <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md  flex justify-between">
                     <Link
@@ -67,19 +68,13 @@ export default function Headers() {
                     </Link>
                   </button>
                 </Link>
-              )}
-
-              {/* login */}
-              {/* profile */}
-              {!isLogin && (
+              ) : (
                 <Link to={'/UserPanel/1'} onClick={handleClose}>
                   <img
-                    src="./Img/profile.jpg"
+                    src="../Img/profile.jpg"
                     className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "></img>
                 </Link>
               )}
-
-              {/* profile */}
             </li>
             <li className=" p-4 hover:brightness-90" onClick={handleClose}>
               <Link to={'/contact-us'}>Contact Us</Link>
@@ -103,7 +98,7 @@ export default function Headers() {
       <ul className="hidden md:flex flex-row-reverse justify-start items-center lg:space-x-8 space-x-2 text-textPrimary lg:text-base text-sm lg:font-semibold font-normal  ">
         <li className=" lg:p-4  p-3">
           {/* login */}
-          {isLogin && (
+          {!authContext.isLoggedIn ? (
             <button className="text-bgPrimary bg-textPrimary p-2 lg:w-32 w-28  rounded-md   flex items-center justify-between">
               <Link
                 to={'/login'}
@@ -120,19 +115,13 @@ export default function Headers() {
                 Register
               </Link>
             </button>
-          )}
-
-          {/* login */}
-          {/* profile */}
-          {!isLogin && (
+          ) : (
             <Link to={'/UserPanel'} onClick={handleClose}>
               <img
-                src="./Img/profile.jpg"
+                src="../Img/profile.jpg"
                 className=" border-1 border-textPrimary w-16   rounded-full shadow-sm  hover:brightness-90"></img>
             </Link>
           )}
-
-          {/* profile */}
         </li>
         <li className=" lg:p-4 p-3    min-w-28  hover:brightness-90">
           <Link to={'/contact-us'}>Contact Us</Link>

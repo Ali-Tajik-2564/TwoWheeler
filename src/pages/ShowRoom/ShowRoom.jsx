@@ -3,40 +3,25 @@ import Item from '../Item/Item';
 import { Link } from 'react-router-dom';
 import ProductBox from '../../components/ProductBox/ProductBox';
 import Pagination from '../../components/Pagination/Pagination';
+import categoryQuery from '../../hooks/CategoryQuery';
+import brandQuery from '../../hooks/brandQuery';
+import productQuery from '../../hooks/productQuery';
 
 export default function ShowRoom() {
-  const [product, setProduct] = useState([
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-  ]);
   const [ShownProduct, setShownProduct] = useState();
   const [StatusFilter, setStatusFilter] = useState();
   const [CategoryFilter, setCategoryFilter] = useState();
   const [BrandFilter, setBrandFilter] = useState();
   const [NameProduct, setNameProduct] = useState(null);
-  console.log(NameProduct);
-  console.log(StatusFilter);
-  console.log(CategoryFilter);
-  console.log(BrandFilter);
+  const { data: CategoryData } = categoryQuery();
+  const { data: BrandData } = brandQuery();
+  const { data: productData } = productQuery(
+    StatusFilter,
+    CategoryFilter,
+    BrandFilter,
+    NameProduct
+  );
+
   const ClearFilter = () => {
     setNameProduct('');
     setStatusFilter('-1');
@@ -56,13 +41,13 @@ export default function ShowRoom() {
           <div className="flex lg:flex-row flex-col w-full h-full justify-evenly max-md:space-y-6">
             <div className=" lg:w-2/3 w-full  grid md:grid-cols-2 grid-cols-1 grid-rows-3 md:gap-x-5 md:gap-y-5 gap-x-3 gap-y-3 h-full ">
               <select
-                name="Used"
+                name="status"
                 className="outline-none ring-0 focus:outline-none focus:ring-0 rounded-md md:font-medium font-light text-bgPrimary p-1"
                 onChange={(e) => setStatusFilter(e.target.value)}
                 value={StatusFilter}>
-                <option value="-1">Used</option>
+                <option value="-1">Status</option>
                 <option value="new">new</option>
-                <option value="stock">stock</option>
+                <option value="used">used</option>
               </select>
               <select
                 name="All Brand"
@@ -70,9 +55,9 @@ export default function ShowRoom() {
                 onChange={(e) => setBrandFilter(e.target.value)}
                 value={BrandFilter}>
                 <option value="-1">All Brand</option>
-
-                <option value="new">new</option>
-                <option value="stock">stock</option>
+                {BrandData?.map((brand) => (
+                  <option value={brand.name}>{brand.name}</option>
+                ))}
               </select>
               <select
                 name="All category"
@@ -80,9 +65,9 @@ export default function ShowRoom() {
                 onChange={(e) => setCategoryFilter(e.target.value)}
                 value={CategoryFilter}>
                 <option value="-1">All category</option>
-
-                <option value="new">new</option>
-                <option value="stock">stock</option>
+                {CategoryData?.map((category) => (
+                  <option value={category.name}>{category.name}</option>
+                ))}
               </select>
               <input
                 type="text"
@@ -107,71 +92,20 @@ export default function ShowRoom() {
         </div>
         {/* filter box */}
         <div className="w-full h-full flex items-start justify-evenly flex-wrap  gap-y-4 p-1">
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
-          <Link to="/item/1">
-            <ProductBox />
-          </Link>
+          {ShownProduct?.map((product) => (
+            <Link to={`/item/${product.id}`}>
+              <ProductBox {...product} />
+            </Link>
+          ))}
         </div>{' '}
-        <Pagination
-          pathname="/motorcycle-show"
-          items={product}
-          itemCount={3}
-          setShownItems={setShownProduct}
-        />
+        {productData && (
+          <Pagination
+            pathname="/motorcycle-show"
+            items={productData}
+            itemCount={9}
+            setShownItems={setShownProduct}
+          />
+        )}
       </div>
     </div>
   );

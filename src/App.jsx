@@ -38,18 +38,13 @@ function App() {
   }, []);
   useEffect(() => {
     const localStorageData = JSON.parse(localStorage.getItem('user'));
-    console.log('localStorageDate', localStorageData);
+
     if (localStorageData) {
-      fetch('http://localhost:4000/v1/auth/me', {
-        headers: {
-          Authorization: `Bearer ${localStorageData}`,
-        },
-      })
+      fetch(`http://localhost:3000/users?id=${localStorageData}`)
         .then((res) => res.json())
         .then((userData) => {
           setIsLoggedIn(true);
           setUserInfo(userData);
-          console.log(isLoggedIn);
         });
     } else {
       setIsLoggedIn(false);
@@ -58,25 +53,26 @@ function App() {
   }, [login, logout]);
   return (
     <>
-      <AuthContext.Provider
-        value={{
-          userId,
-          userInfo,
-          login,
-          logout,
-          isLoggedIn,
-        }}>
-        {/* <QueryClientProvider client={queryClient}> */}
-        {/* <ReactQueryDevtools
-          initialIsOpen={false}
-          position="right"
-          buttonPosition="top-right"
-        /> */}
-        <Headers />
-        {router}
-        <Footer />
-        {/* </QueryClientProvider> */}
-      </AuthContext.Provider>
+      <QueryClientProvider client={queryClient}>
+        <AuthContext.Provider
+          value={{
+            userId,
+            userInfo,
+            login,
+            logout,
+            isLoggedIn,
+          }}>
+          <ReactQueryDevtools
+            initialIsOpen={false}
+            position="right"
+            buttonPosition="top-right"
+          />
+          <Headers />
+
+          {router}
+          <Footer />
+        </AuthContext.Provider>
+      </QueryClientProvider>
     </>
   );
 }
