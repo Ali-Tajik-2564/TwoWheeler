@@ -8,7 +8,7 @@ export default function productQuery(
   NameProduct
 ) {
   return useQuery({
-    queryKey: ['product'],
+    queryKey: 'Product',
     queryFn: () => {
       return fetch('http://localhost:3000/product')
         .then((res) => res.json())

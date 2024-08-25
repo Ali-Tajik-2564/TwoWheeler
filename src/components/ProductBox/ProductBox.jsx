@@ -1,10 +1,19 @@
 import React from 'react';
 
-export default function ProductBox() {
+export default function ProductBox({
+  pics,
+  dateOfProduction,
+  name,
+  brand,
+  status,
+  price,
+  stock,
+  color,
+}) {
   return (
     <div className="text-textPrimary w-72 h-auto p-3 rounded-md bg-bgPrimary flex flex-col items-start justify-start space-y-3  hover:bg-bgPrimary/80">
       <img
-        src="..\Img\kawasaki400Abs.png"
+        src={`../${pics[0]}`}
         alt=""
         className="w-full h-auto rounded-md   "
       />
@@ -12,18 +21,18 @@ export default function ProductBox() {
         {/* header  */}
         <div className="w-full flex items-start justify-between">
           <p className="w-2/3 font-semibold text-base line-clamp-2 ">
-            Suzuki GSX-R1000 (2004)
+            {brand} {name} ({dateOfProduction})
           </p>
-          <p className="font-semibold text-sm">status</p>
+          <p className="font-semibold text-sm">{status}</p>
         </div>
         {/* header  */}
         {/* price */}
-        <p className="text-lg font-semibold">$6,899</p>
+        <p className="text-lg font-semibold">${price}</p>
         {/* price */}
         {/* stock and color */}
         <div className="w-full flex items-start justify-between">
-          <p className="font-semibold text-base ">stock : 12</p>
-          <p className="font-semibold text-sm">colors : blue / white</p>
+          <p className="font-semibold text-base ">stock : {stock}</p>
+          <p className="font-semibold text-sm">colors : {color}</p>
         </div>
         {/* stock and color */}
         {/* detail button  */}
