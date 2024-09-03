@@ -51,44 +51,49 @@ export default function Item() {
               </button>
             </div>
             {/* Slider  */}
-            <div className="md:w-3/5 w-full h-auto   md:px-16 px-3 py-7 space-y-16">
+            <div className="md:w-3/5 w-full h-auto relative  md:px-16 px-3 py-7 space-y-16">
               {/* Info  */}
-              <div
-                className={`w-full h-full flex flex-col  items-start justify-evenly space-y-10  text-bgPrimary  bg-[url('${
-                  isFetched ? brand[0]?.icon : ''
-                }')] bg-contain  bg-center bg-opacity-75 bg-no-repeat`}>
-                <p className="text-3xl font-bold ">
-                  {product[0]?.brand} {product[0]?.name} (
-                  {product[0]?.dateOfProduction})
-                </p>
-                <div className="w-full  flex items-center justify-between">
+              <img
+                src={brand[0]?.icon}
+                alt=""
+                className="absolute   opacity-80 bg-contain w-auto h-auto"
+              />
+              <div className="w-full h-full relative">
+                <div
+                  className={`w-full h-full flex flex-col  items-start justify-evenly space-y-10  text-bgPrimary  bg-[url('${brand[0]?.icon}')] bg-contain  bg-center bg-opacity-75 bg-no-repeat`}>
+                  <p className="text-3xl font-bold ">
+                    {product[0]?.brand} {product[0]?.name} (
+                    {product[0]?.dateOfProduction})
+                  </p>
+                  <div className="w-full  flex items-center justify-between">
+                    <p className="text-lg font-normal">
+                      Status: {product[0]?.status}
+                    </p>
+                    <p className="text-lg font-normal">
+                      Code: {product[0]?.code}
+                    </p>
+                  </div>
+                  <p className="text-3xl font-bold ">${product[0]?.price}</p>
                   <p className="text-lg font-normal">
-                    Status: {product[0]?.status}
+                    Color(s) :
+                    <input className="bg-orange-900 rounded-full w-6 h-6 focus:ring-1 ring-gray-400 m-1 cursor-pointer" />
+                    <input className="bg-gray-900 rounded-full w-6 h-6 focus:ring-1 focus:ring-gray-400   m-1 cursor-pointer" />
                   </p>
                   <p className="text-lg font-normal">
-                    Code: {product[0]?.code}
+                    Stock: {product[0]?.stock}
                   </p>
-                </div>
-                <p className="text-3xl font-bold ">${product[0]?.price}</p>
-                <p className="text-lg font-normal">
-                  Color(s) :
-                  <input className="bg-orange-900 rounded-full w-6 h-6 focus:ring-1 ring-gray-400 m-1 cursor-pointer" />
-                  <input className="bg-gray-900 rounded-full w-6 h-6 focus:ring-1 focus:ring-gray-400   m-1 cursor-pointer" />
-                </p>
-                <p className="text-lg font-normal">
-                  Stock: {product[0]?.stock}
-                </p>
-                <div className="w-full h-auto flex item-center justify-between space-x-4">
-                  <Link
-                    to={`Payment-info/${product[0]?.id}`}
-                    className="ml-auto md:w-44 w-auto px-4 h-10 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base ">
-                    Add to Card
-                  </Link>
-                  <button
-                    className="ml-auto md:w-44 w-auto px-4 h-10 p-2  md:hidden text-center rounded-md border-2 border-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base duration-150 "
-                    onClick={() => history.go(-1)}>
-                    Back to Showroom
-                  </button>
+                  <div className="w-full h-auto flex item-center justify-between space-x-4">
+                    <Link
+                      to={`Payment-info/${product[0]?.id}`}
+                      className="ml-auto md:w-44 w-auto px-4 h-10 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base ">
+                      Add to Card
+                    </Link>
+                    <button
+                      className="ml-auto md:w-44 w-auto px-4 h-10 p-2  md:hidden text-center rounded-md border-2 border-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base duration-150 "
+                      onClick={() => history.go(-1)}>
+                      Back to Showroom
+                    </button>
+                  </div>
                 </div>
               </div>
               {/* Info  */}

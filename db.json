@@ -189,12 +189,13 @@
     {
       "id": "1",
       "name": "yamaha",
-      "icon": "../.././Img/image-39"
+
+      "icon": "./Img/image-39"
     },
     {
       "id": "2",
       "name": "triumph",
-      "icon": "../.././Img/image-50.png"
+      "icon": "./Img/image-50.png"
     },
     {
       "id": "3",
