@@ -84,7 +84,7 @@ export default function Item() {
                   </p>
                   <div className="w-full h-auto flex item-center justify-between space-x-4">
                     <Link
-                      to={`Payment-info/${product[0]?.id}`}
+                      to={`/Payment-info/${product[0]?.id}`}
                       className="ml-auto md:w-44 w-auto px-4 h-10 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base ">
                       Add to Card
                     </Link>

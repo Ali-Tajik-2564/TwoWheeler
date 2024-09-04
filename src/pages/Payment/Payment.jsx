@@ -1,10 +1,49 @@
 import React from 'react';
 import { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
+import orderSubmitQuery from '../../hooks/orderSubmitQuery';
+import { useParams } from 'react-router-dom';
+import productQuery from '../../hooks/productQuery';
+import Swal from 'sweetalert2';
 export default function Payment() {
+  const urlParam = useParams();
   const [bankName, setBankName] = useState();
-  console.log(bankName);
-  const SubmitOrder = () => {};
+  const [cvv, setCvv] = useState();
+  const [fullNameInput, setFullName] = useState();
+  const [cardNumber, SetCardNumber] = useState();
+  const [date, setDate] = useState();
+  const { data } = productQuery();
+
+  const product = data?.filter((product) => product?.id === urlParam.id);
+  console.log(product);
+  const { mutate, isSuccess, error } = orderSubmitQuery();
+  const SubmitOrder = (event) => {
+    event.preventDefault();
+    mutate(
+      {
+        fullName: fullNameInput,
+        price: product[0]?.price,
+        productID: product[0]?.id,
+      },
+      {
+        onSettled: () => {
+          Swal.fire({
+            title:
+              'your order has been submitted , you will receive a call from us ',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#083344',
+          }).then(() => {
+            setBankName('');
+            setCvv('');
+            setDate('');
+            setFullName('');
+          });
+        },
+      }
+    );
+  };
+
   return (
     <div className="w-full h-auto flex flex-col-reverse lg:flex-row item-center justify-between lg:p-14 p-3 bg-white lg:space-y-0 space-y-5 lg:space-x-10">
       <div className="lg:w-2/5 md:w-4/5 w-full h-full flex flex-col items-start justify-between p-4 space-y-12">
@@ -49,6 +88,8 @@ export default function Payment() {
             type="text"
             placeholder="Name "
             className="focus:ring-0 focus:outline-none md:w-4/5 w-full text-bgPrimary font-medium text-lg border-b-2 border-bgPrimary/30  bg-none"
+            value={fullNameInput}
+            onChange={(event) => setFullName(event.target.value)}
           />
           <div className="flex  md:w-4/5 w-full h-auto items-end justify-start border-b-2 border-bgPrimary/30 p-2">
             <Dropdown>
@@ -88,6 +129,8 @@ export default function Payment() {
               type="text"
               placeholder="Number "
               className="focus:ring-0 focus:outline-none w-full text-bgPrimary font-medium text-lg border-l border-bgPrimary/50  px-2  bg-none"
+              value={cardNumber}
+              onChange={(event) => SetCardNumber(event.target.value)}
             />
           </div>
           <div className="flex w-full h-auto  items-start justify-between   ">
@@ -99,6 +142,8 @@ export default function Payment() {
                 type="date"
                 name="Expiration Date"
                 className="focus:ring-0 focus:outline-none  text-bgPrimary/70 font-medium text-lg border-b-2 border-bgPrimary/30  bg-none w-auto"
+                value={date}
+                onChange={(event) => setDate(event.target.value)}
               />
             </div>
 
@@ -109,6 +154,8 @@ export default function Payment() {
                 name="CVV"
                 placeholder="nnn"
                 className="focus:ring-0 focus:outline-none w-3/4 text-bgPrimary/70 font-medium text-lg border-b-2 border-bgPrimary/30  bg-none"
+                value={cvv}
+                onChange={(event) => setCvv(event.target.value)}
               />
             </div>
           </div>
@@ -147,12 +194,15 @@ export default function Payment() {
           <div className="flex flex-col items-start justify-start w-full h-auto space-y-4">
             <p className="text-white font-bold text-xl ">Your Order : </p>
             <p className="text-white font-bold text-xl ">
-              Ducati 1199 Panigale (2012)
+              {product[0].brand} {product[0]?.name} (
+              {product[0].dateOfProduction})
             </p>
             <p className="text-white font-bold text-lg">
-              color : vivid white and black{' '}
+              color : {product[0]?.color}{' '}
             </p>
-            <p className="text-textPrimary font-bold text-2xl">$12,999</p>
+            <p className="text-textPrimary font-bold text-2xl">
+              ${product[0]?.price}
+            </p>
           </div>
         </div>
         {/* item info  */}
