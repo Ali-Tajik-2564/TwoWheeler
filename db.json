@@ -296,25 +296,14 @@
   ],
   "users": [
     {
-      "id": "1",
-      "fullName": "ali tajik",
-      "email": "ali.1385.tajik.a@gamil.com",
-      "password": "123456",
-      "profile": "../Img/profile.jpg",
-      "orderHistory": [
-        {
-          "id": "1",
-          "date": "2001",
-          "price": "27.000",
-          "status": "send"
-        }
-      ]
+      "password": "3333333",
+      "id": "1"
     },
     {
       "id": "4",
       "fullName": "ali tajik",
       "email": "ali.1385.tajik.a@gamil.com",
-      "password": "123456",
+      "password": "45474",
       "profile": "../Img/profile.jpg",
       "orderHistory": [
         {
@@ -376,6 +365,14 @@
       "fullName": "alireza",
       "email": "alireza@gamil.com",
       "password": "165498",
+      "profile": "",
+      "orderHistory": []
+    },
+    {
+      "id": "027f",
+      "fullName": "ALitajik",
+      "email": "ali.1385.tajik.a@gmail.com",
+      "password": "1234523",
       "profile": "",
       "orderHistory": []
     }

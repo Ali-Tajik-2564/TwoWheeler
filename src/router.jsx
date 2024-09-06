@@ -27,7 +27,7 @@ const routes = [
   },
   { path: '/register', element: <Register /> },
   { path: '/login', element: <Login /> },
-  { path: '/UserPanel/:id', element: <UserPanel /> },
+  { path: '/UserPanel', element: <UserPanel /> },
   { path: '/specs:name', element: <Specs /> },
   { path: '/contact-us', element: <Contact /> },
   { path: '/check-out', element: <CheckOut /> },
