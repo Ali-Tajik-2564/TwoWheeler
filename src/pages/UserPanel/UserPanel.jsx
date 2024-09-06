@@ -1,19 +1,56 @@
 import React from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import usersQuery from '../../hooks/usersQuery';
-import usersActionQUery from '../../hooks/usersActionQuery';
+import {
+  usersQuery,
+  editPasswordQuery,
+  editInfoQuery,
+} from '../../hooks/usersQuery';
 import Swal from 'sweetalert2';
-import { useQueryClient } from '@tanstack/react-query';
 export default function UserPanel() {
-  const queryCLient = useQueryClient();
   const userID = JSON.parse(localStorage.getItem('user'));
   const { data: userData, isSuccess } = usersQuery(userID);
-  const { mutate } = usersActionQUery();
-  console.log(userData);
+  const { mutate: passwordMutate } = editPasswordQuery();
+  const { mutate: infoMutate } = editInfoQuery();
 
   const profileEdit = () => {
     console.log('edited');
+  };
+  const InfoEdit = () => {
+    Swal.fire({
+      title: 'please enter your new full Name and Email',
+
+      html: `   <input type="text" id="swal-input1" class="swal2-input" placeholder="full name">
+    <input type="email" id="swal-input2" class="swal2-input" placeholder=" email">`,
+      confirmButtonText: 'Done !',
+      preConfirm: () => {
+        return [
+          document.getElementById('swal-input1').value,
+          document.getElementById('swal-input2').value,
+        ];
+      },
+    }).then((result) => {
+      infoMutate(
+        {
+          user: userData,
+          id: userID,
+          fullName: result.value[0],
+          email: result.value[1],
+        },
+
+        {
+          onSuccess: () => {
+            Swal.fire({
+              title:
+                'your change has been submitted , you can check it from your Panel ',
+              icon: 'success',
+              confirmButtonText: 'Ok',
+              confirmButtonColor: '#083344',
+            });
+          },
+        }
+      );
+    });
   };
   const PasswordEdit = () => {
     Swal.fire({
@@ -23,7 +60,7 @@ export default function UserPanel() {
       inputPlaceholder: 'Your Password',
       confirmButtonText: 'Done !',
     }).then((result) => {
-      mutate(
+      passwordMutate(
         {
           user: userData,
           id: userID,
@@ -31,8 +68,7 @@ export default function UserPanel() {
         },
 
         {
-          onSettled: () => {
-            queryCLient.invalidateQueries(['users']);
+          onSuccess: () => {
             Swal.fire({
               title:
                 'your change has been submitted , you can check it from your Panel ',
@@ -50,7 +86,7 @@ export default function UserPanel() {
       {isSuccess && (
         <>
           <button
-            onClick={profileEdit}
+            onClick={InfoEdit}
             className=" md:w-48 w-auto ml-auto px-4 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base  text-center">
             Edit Profile
           </button>
