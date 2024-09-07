@@ -12,7 +12,7 @@ const usersQuery = (id) => {
 
     select: (data) => {
       if (id) {
-        return data.filter((article) => article.id === id);
+        return data.filter((user) => user.id === id);
       } else {
         return data;
       }
@@ -102,5 +102,25 @@ const editInfoQuery = () => {
     },
   });
 };
+const editProfileImg = () => {
+  return useMutation({
+    mutationFn: (data) => {
+      fetch(`http://localhost:3000/users/${data.id}`, {
+        method: 'PUT',
+        headers: {
+          'COntent-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: data.id,
+          fullName: data.user[0].fullName,
+          email: data.user[0].email,
+          password: data.user[0].password,
+          profile: data.profile,
+          orderHistory: data.user[0].orderHistory,
+        }),
+      }).then((res) => res.json());
+    },
+  });
+};
 const NewUserQuery = () => {};
-export { editPasswordQuery, usersQuery, editInfoQuery };
+export { editPasswordQuery, usersQuery, editInfoQuery, editProfileImg };

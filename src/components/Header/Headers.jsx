@@ -71,7 +71,7 @@ export default function Headers() {
               ) : (
                 <Link to={'/UserPanel/1'} onClick={handleClose}>
                   <img
-                    src="../Img/profile.jpg"
+                    src={`../../Img/${authContext.userInfo[0]?.profile}`}
                     className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "></img>
                 </Link>
               )}
@@ -118,7 +118,7 @@ export default function Headers() {
           ) : (
             <Link to={'/UserPanel'} onClick={handleClose}>
               <img
-                src="../Img/profile.jpg"
+                src={`../../Img/${authContext.userInfo[0]?.profile}`}
                 className=" border-1 border-textPrimary w-16   rounded-full shadow-sm  hover:brightness-90"></img>
             </Link>
           )}

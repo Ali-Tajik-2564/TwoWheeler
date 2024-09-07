@@ -19,7 +19,7 @@ import Register from './pages/Register/Register';
 import ShowRoom from './pages/ShowRoom/ShowRoom';
 import Specs from './pages/Specs/Specs';
 import UserPanel from './pages/UserPanel/UserPanel';
-
+import OrderHistory from './pages/orderHistory/orderHistory';
 const routes = [
   {
     path: '/',
@@ -27,7 +27,11 @@ const routes = [
   },
   { path: '/register', element: <Register /> },
   { path: '/login', element: <Login /> },
-  { path: '/UserPanel', element: <UserPanel /> },
+  {
+    path: '/UserPanel',
+    element: <UserPanel />,
+  },
+  { path: '/orderHistory', element: <OrderHistory /> },
   { path: '/specs:name', element: <Specs /> },
   { path: '/contact-us', element: <Contact /> },
   { path: '/check-out', element: <CheckOut /> },

@@ -5,6 +5,7 @@ import {
   usersQuery,
   editPasswordQuery,
   editInfoQuery,
+  editProfileImg,
 } from '../../hooks/usersQuery';
 import Swal from 'sweetalert2';
 export default function UserPanel() {
@@ -12,9 +13,34 @@ export default function UserPanel() {
   const { data: userData, isSuccess } = usersQuery(userID);
   const { mutate: passwordMutate } = editPasswordQuery();
   const { mutate: infoMutate } = editInfoQuery();
+  const { mutate: profileMutate } = editProfileImg();
 
   const profileEdit = () => {
-    console.log('edited');
+    Swal.fire({
+      title: 'please choose your profile image ',
+      input: 'file',
+      confirmButtonText: 'Done !',
+    }).then((result) => {
+      profileMutate(
+        {
+          user: userData,
+          id: userID,
+          profile: result.value.name,
+        },
+
+        {
+          onSuccess: () => {
+            Swal.fire({
+              title:
+                'your change has been submitted , you can check it from your Panel ',
+              icon: 'success',
+              confirmButtonText: 'Ok',
+              confirmButtonColor: '#083344',
+            });
+          },
+        }
+      );
+    });
   };
   const InfoEdit = () => {
     Swal.fire({
@@ -106,24 +132,33 @@ export default function UserPanel() {
                   <IoIosArrowForward />
                 </li>
               </Link>
-              <Link to="" className="w-full h-auto">
+              <Link to="/orderHistory" className="w-full h-auto">
                 <li className="flex items-center justify-between w-full h-auto border-b border-bgPrimary text-bgPrimary font-medium text-lg p-2 hover:text-bgPrimary/50 hover:border-bgPrimary/50">
                   <p>Order History</p>
                   <IoIosArrowForward />
                 </li>
               </Link>
-              <Link to="" className="w-full h-auto">
+              <Link to="" className="w-full h-auto" onClick={profileEdit}>
                 <li className="flex items-center justify-between w-full h-auto border-b border-bgPrimary text-bgPrimary font-medium text-lg p-2 hover:text-bgPrimary/50 hover:border-bgPrimary/50">
                   <p>Edit Photo</p>
                   <IoIosArrowForward />
                 </li>
               </Link>
             </ul>
-            <img
-              src="../../Img/profile.jpg"
-              alt=""
-              className="rounded-full w-64 h-auto bg-contain "
-            />
+            {userData[0]?.profile ? (
+              <img
+                src={`../../Img/${userData[0]?.profile}`}
+                alt=""
+                className="rounded-full w-64 h-auto bg-contain "
+              />
+            ) : (
+              <img
+                src="../../Img/noProfileIcon.png"
+                alt=""
+                className="rounded-full w-64 h-auto bg-contain "
+              />
+            )}
+
             <div className="flex flex-col items-start justify-between space-y-5 h-auto w-1/3 ">
               <div className="flex items-center w-full justify-between space-x-3">
                 <label
