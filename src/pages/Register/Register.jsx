@@ -6,6 +6,7 @@ import { userSchema } from './../../Validation/Validation';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import AuthContext from '../../Contexts/AuthContext';
+import { NewUserQuery } from '../../hooks/usersQuery';
 export default function Register() {
   const [visibilityPassword, setVisibilityPassword] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
@@ -16,6 +17,9 @@ export default function Register() {
   const [Email, setEmail] = useState(null);
   const [Password, setPassword] = useState(null);
   const authContext = useContext(AuthContext);
+  const { data, mutate: userMutate, isSuccess } = NewUserQuery();
+  console.log(data);
+
   const InputValidation = async (event) => {
     event.preventDefault();
     let user = {
@@ -42,31 +46,23 @@ export default function Register() {
   };
 
   const submitUser = () => {
-    let user = {
-      fullName: FullName,
-      email: Email,
-      password: Password,
-      profile: '',
-      orderHistory: [],
-    };
-
-    fetch('http://localhost:3000/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user),
+    Swal.fire({
+      title: 'Registration was successful',
+      icon: 'success',
+      confirmButtonText: 'let brows the products',
     })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result) {
-          authContext.login({}, result.id);
-          Swal.fire({
-            title: 'Registration was successful',
-            icon: 'success',
-            confirmButtonText: 'let brows the products',
-          }).then(() => {
-            setIsRegistered(true);
-          });
-        }
+      .then(() => {
+        userMutate({
+          fullName: FullName,
+          email: Email,
+          password: Password,
+          profile: '',
+          orderHistory: [],
+          roll: 'user',
+        });
+      })
+      .then(() => {
+        setIsRegistered(true);
       });
   };
   const handlePasswordShow = () => {

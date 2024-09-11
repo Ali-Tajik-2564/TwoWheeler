@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   usersQuery,
   editPasswordQuery,
@@ -8,8 +8,11 @@ import {
   editProfileImg,
 } from '../../hooks/usersQuery';
 import Swal from 'sweetalert2';
+import AuthContext from '../../Contexts/AuthContext';
 export default function UserPanel() {
   const userID = JSON.parse(localStorage.getItem('user'));
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
   const { data: userData, isSuccess } = usersQuery(userID);
   const { mutate: passwordMutate } = editPasswordQuery();
   const { mutate: infoMutate } = editInfoQuery();
@@ -78,6 +81,16 @@ export default function UserPanel() {
       );
     });
   };
+  const Logout = () => {
+    Swal.fire({
+      title: 'you have logged out successfully ',
+      icon: 'success',
+      confirmButtonText: 'thank you',
+    }).then((result) => {
+      authContext.logout();
+      navigate('/');
+    });
+  };
   const PasswordEdit = () => {
     Swal.fire({
       title: 'please enter your new password',
@@ -141,6 +154,12 @@ export default function UserPanel() {
               <Link to="" className="w-full h-auto" onClick={profileEdit}>
                 <li className="flex items-center justify-between w-full h-auto border-b border-bgPrimary text-bgPrimary font-medium text-lg p-2 hover:text-bgPrimary/50 hover:border-bgPrimary/50">
                   <p>Edit Photo</p>
+                  <IoIosArrowForward />
+                </li>
+              </Link>
+              <Link to="" className="w-full h-auto" onClick={Logout}>
+                <li className="flex items-center justify-between w-full h-auto border-b border-bgPrimary text-bgPrimary font-medium text-lg p-2 hover:text-bgPrimary/50 hover:border-bgPrimary/50">
+                  <p>Log out</p>
                   <IoIosArrowForward />
                 </li>
               </Link>
@@ -209,11 +228,19 @@ export default function UserPanel() {
           {/* LG profile */}
           {/* MD Profile  */}
           <div className="w-full h-auto max-lg:flex flex-col justify-center item-center py-10 mb-5  hidden space-y-8">
-            <img
-              src="../../Img/profile.jpg"
-              alt=""
-              className="rounded-full w-64 h-auto bg-contain mx-auto"
-            />
+            {userData[0]?.profile ? (
+              <img
+                src={`../../Img/${userData[0]?.profile}`}
+                alt=""
+                className="rounded-full w-64 h-auto bg-contain mx-auto"
+              />
+            ) : (
+              <img
+                src="../../Img/noProfileIcon.png"
+                alt=""
+                className="rounded-full w-64 h-auto bg-contain mx-auto"
+              />
+            )}
             <div className="flex items-center justify-between space-x-4 md:flex-row flex-col space-y-10 md:space-y-0">
               <div className="md:w-1/2 w-full flex flex-col items-start justify-between space-y-5 h-auto  ">
                 <div className="flex items-center w-full justify-between space-x-3">
@@ -228,7 +255,7 @@ export default function UserPanel() {
                     placeholder="Number "
                     className="focus:ring-0 focus:outline-none w-full text-bgPrimary/50 rounded-md font-medium text-base border border-bgPrimary/50  p-1  bg-white"
                     disabled
-                    value="Ali Tajik"
+                    value={userData[0]?.fullName}
                   />
                 </div>
                 <div className="flex items-center w-full justify-between space-x-3">
@@ -240,17 +267,17 @@ export default function UserPanel() {
 
                   <input
                     type="text"
-                    placeholder="Number "
+                    placeholder="Email "
                     className="focus:ring-0 focus:outline-none w-full text-bgPrimary/50 rounded-md font-medium text-base border border-bgPrimary/50  p-1  bg-white"
                     disabled
-                    value="ali.1385.tajik.a@gmail.com"
+                    value={userData[0]?.email}
                   />
                 </div>
                 <div className="flex items-center w-full justify-between space-x-3">
                   <label
                     htmlFor="input"
                     className="text-bgPrimary font-semibold text-sm min-w-2/4">
-                    Phone Number
+                    Password
                   </label>
 
                   <input
@@ -258,7 +285,7 @@ export default function UserPanel() {
                     placeholder="Number "
                     className="focus:ring-0 focus:outline-none w-full text-bgPrimary/50 rounded-md font-medium text-base border border-bgPrimary/50  p-1  bg-white"
                     disabled
-                    value="09123204263"
+                    value={userData[0]?.password}
                   />
                 </div>
               </div>
@@ -269,21 +296,27 @@ export default function UserPanel() {
                     <IoIosArrowForward />
                   </li>
                 </Link>
-                <Link to="" className="w-full h-auto">
+                <Link onClick={PasswordEdit} className="w-full h-auto">
                   <li className="flex items-center justify-between w-full h-auto border-b border-bgPrimary text-bgPrimary font-medium text-lg p-2 hover:text-bgPrimary/50 hover:border-bgPrimary/50">
                     <p>Change Password</p>
                     <IoIosArrowForward />
                   </li>
                 </Link>
-                <Link to="" className="w-full h-auto">
+                <Link to="/orderHistory" className="w-full h-auto">
                   <li className="flex items-center justify-between w-full h-auto border-b border-bgPrimary text-bgPrimary font-medium text-lg p-2 hover:text-bgPrimary/50 hover:border-bgPrimary/50">
                     <p>Order History</p>
                     <IoIosArrowForward />
                   </li>
                 </Link>
-                <Link to="" className="w-full h-auto">
+                <Link onClick={profileEdit} className="w-full h-auto">
                   <li className="flex items-center justify-between w-full h-auto border-b border-bgPrimary text-bgPrimary font-medium text-lg p-2 hover:text-bgPrimary/50 hover:border-bgPrimary/50">
                     <p>Edit Photo</p>
+                    <IoIosArrowForward />
+                  </li>
+                </Link>
+                <Link onClick={Logout} className="w-full h-auto">
+                  <li className="flex items-center justify-between w-full h-auto border-b border-bgPrimary text-bgPrimary font-medium text-lg p-2 hover:text-bgPrimary/50 hover:border-bgPrimary/50">
+                    <p>Log Out</p>
                     <IoIosArrowForward />
                   </li>
                 </Link>

@@ -296,14 +296,11 @@
   ],
   "users": [
     {
-      "password": "3333333",
-      "id": "1"
-    },
-    {
       "id": "4",
       "fullName": "ali tajik",
       "email": "ali.1385.tajik.a@gamil.com",
       "password": "45474",
+      "roll": "user",
       "profile": "../Img/profile.jpg",
       "orderHistory": [
         {
@@ -318,6 +315,7 @@
       "id": "3",
       "fullName": "ali tajik",
       "email": "ali.1385.tajik.a@gamil.com",
+      "roll": "user",
       "password": "123456",
       "profile": "../Img/profile.jpg",
       "orderHistory": [
@@ -333,6 +331,7 @@
       "id": "2",
       "fullName": "ali tajik",
       "email": "ali.1385.tajik.a@gamil.com",
+      "roll": "user",
       "password": "ali1385",
       "profile": "../Img/profile.jpg",
       "orderHistory": [
@@ -349,6 +348,7 @@
       "fullName": "mohammad",
       "email": "mohammad@gamil.com",
       "password": "123879",
+      "roll": "user",
       "profile": "",
       "orderHistory": []
     },
@@ -356,6 +356,7 @@
       "id": "87bc",
       "fullName": "mohammad",
       "email": "mohammad@gamil.com",
+      "roll": "user",
       "password": "123879",
       "profile": "",
       "orderHistory": []
@@ -364,6 +365,7 @@
       "id": "f4d4",
       "fullName": "alireza",
       "email": "alireza@gamil.com",
+      "roll": "user",
       "password": "165498",
       "profile": "",
       "orderHistory": []
@@ -373,6 +375,7 @@
       "fullName": "ALitajik",
       "email": "ali.1385.tajik.a@gmail.com",
       "password": "1234523",
+      "roll": "user",
       "profile": "",
       "orderHistory": []
     },
@@ -380,9 +383,19 @@
       "id": "b25d",
       "fullName": "alitajik",
       "email": "alitajik@gmail.com",
-      "password": "223",
+      "password": "223333",
+      "roll": "user",
       "profile": "logo-1.png",
       "orderHistory": []
+    },
+    {
+      "id": "342",
+      "fullName": "AliTK",
+      "email": "alitajik1385@gmail.com",
+      "password": "55555",
+      "profile": "logo-1.png",
+      "orderHistory": [],
+      "roll": "admin"
     }
   ],
   "article": [

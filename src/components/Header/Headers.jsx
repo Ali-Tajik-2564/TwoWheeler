@@ -49,7 +49,25 @@ export default function Headers() {
           <ul className="mx-2 flex flex-col justify-center items-end space-y-8  text-textPrimary text-lg font-semibold   ">
             <li className="p-2 ">
               {/* login */}
-              {!authContext.isLoggedIn ? (
+              {authContext.isLoggedIn ? (
+                <Link to={'/UserPanel'} onClick={handleClose}>
+                  {authContext.userInfo[0]?.profile === '' ? (
+                    <>
+                      <img
+                        src="../../Img/noProfileIcon.png"
+                        className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <img
+                        src={`../../Img/${authContext.userInfo[0]?.profile}`}
+                        className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
+                      />
+                    </>
+                  )}
+                </Link>
+              ) : (
                 <Link to={'/login'} onClick={handleClose}>
                   <button className="text-bgPrimary bg-textPrimary p-2 w-36  rounded-md  flex justify-between">
                     <Link
@@ -67,12 +85,6 @@ export default function Headers() {
                       Register
                     </Link>
                   </button>
-                </Link>
-              ) : (
-                <Link to={'/UserPanel/1'} onClick={handleClose}>
-                  <img
-                    src={`../../Img/${authContext.userInfo[0]?.profile}`}
-                    className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "></img>
                 </Link>
               )}
             </li>
@@ -98,7 +110,25 @@ export default function Headers() {
       <ul className="hidden md:flex flex-row-reverse justify-start items-center lg:space-x-8 space-x-2 text-textPrimary lg:text-base text-sm lg:font-semibold font-normal  ">
         <li className=" lg:p-4  p-3">
           {/* login */}
-          {!authContext.isLoggedIn ? (
+          {authContext.isLoggedIn ? (
+            <Link to={'/UserPanel'} onClick={handleClose}>
+              {authContext.userInfo[0]?.profile === '' ? (
+                <>
+                  <img
+                    src="../../Img/noProfileIcon.png"
+                    className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
+                  />
+                </>
+              ) : (
+                <>
+                  <img
+                    src={`../../Img/${authContext.userInfo[0]?.profile}`}
+                    className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
+                  />
+                </>
+              )}
+            </Link>
+          ) : (
             <button className="text-bgPrimary bg-textPrimary p-2 lg:w-32 w-28  rounded-md   flex items-center justify-between">
               <Link
                 to={'/login'}
@@ -115,12 +145,6 @@ export default function Headers() {
                 Register
               </Link>
             </button>
-          ) : (
-            <Link to={'/UserPanel'} onClick={handleClose}>
-              <img
-                src={`../../Img/${authContext.userInfo[0]?.profile}`}
-                className=" border-1 border-textPrimary w-16   rounded-full shadow-sm  hover:brightness-90"></img>
-            </Link>
           )}
         </li>
         <li className=" lg:p-4 p-3    min-w-28  hover:brightness-90">
