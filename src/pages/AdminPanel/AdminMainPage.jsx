@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { usersQuery } from '../../hooks/usersQuery';
+import productQuery from '../../hooks/productQuery';
 export default function AdminMainPage() {
+  const { data: usersData } = usersQuery();
+  let newUsers = usersData?.slice(0, 3);
+  const { data: productData } = productQuery();
+  let offProducts = productData?.slice(0, 3);
   return (
     <div>
       <div className="w-[95%] mx-auto p-1 text-right">
@@ -18,36 +24,18 @@ export default function AdminMainPage() {
             </tr>
           </thead>
           <tbody>
-            <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
-              <td>علی تاجیک</td>
-              <td>ali.1385.tajik@gmail.com</td>
-              <td>مدیر</td>
-              <td className=" bg-bgPrimary hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
-                <Link to="/admin-panel/users">
-                  <button>ادیت</button>
-                </Link>
-              </td>
-            </tr>
-            <tr className="p-2 text-base font-light  flex justify-between text-textPrimary  items-center flex-row-reverse">
-              <td>امیر محمد</td>
-              <td>ali.1385.tajik@gmail.com</td>
-              <td>مدیر</td>
-              <td className=" bg-bgPrimary hover:bg-bgPrimary/70 p-1 px-2 rounded-sm">
-                <Link to="/admin-panel/users">
-                  <button>ادیت</button>
-                </Link>
-              </td>
-            </tr>
-            <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
-              <td>محمد</td>
-              <td>ali.1385.tajik@gmail.com</td>
-              <td>کاربر</td>
-              <td className=" bg-bgPrimary hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
-                <Link to="/admin-panel/users">
-                  <button>ادیت</button>
-                </Link>
-              </td>
-            </tr>
+            {newUsers?.map((user) => (
+              <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
+                <td>{user.fullName}</td>
+                <td>{user.email}</td>
+                <td>{user.roll}</td>
+                <td className=" bg-bgPrimary hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
+                  <Link to="/admin-panel/users/1">
+                    <button>ادیت</button>
+                  </Link>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -65,36 +53,20 @@ export default function AdminMainPage() {
             </tr>
           </thead>
           <tbody>
-            <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
-              <td>گوشی A71 سامسونگ</td>
-              <td>6.000.000</td>
-              <td>60</td>
-              <td className=" bg-bgPrimary hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
-                <Link to="/admin-panel/offs">
-                  <button>ادیت</button>
-                </Link>
-              </td>
-            </tr>
-            <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
-              <td>iphone 15</td>
-              <td>15.000.000</td>
-              <td>35</td>
-              <td className=" bg-bgPrimary hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
-                <Link to="/admin-panel/offs">
-                  <button>ادیت</button>
-                </Link>
-              </td>
-            </tr>
-            <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
-              <td>لپتاپ ایسوس</td>
-              <td>45.000.000</td>
-              <td>15</td>
-              <td className=" bg-bgPrimary hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
-                <Link to="/admin-panel/offs">
-                  <button>ادیت</button>
-                </Link>
-              </td>
-            </tr>
+            {offProducts?.map((product) => (
+              <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
+                <td>
+                  {product.name} {product.brand}
+                </td>
+                <td>{product.price}</td>
+                <td>0</td>
+                <td className=" bg-bgPrimary hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
+                  <Link to="/admin-panel/products/1">
+                    <button>ادیت</button>
+                  </Link>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

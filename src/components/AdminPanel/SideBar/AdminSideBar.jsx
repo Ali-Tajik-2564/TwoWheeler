@@ -34,12 +34,12 @@ export default function AdminSideBar({ onSlideShow, setOnSlideShow }) {
               پنل مدیریت
             </li>
           </Link>
-          <Link to="users">
+          <Link to="users/1">
             <li className="text-textPrimary text-lg font-medium p-1 mr-3 hover:text-textPrimary/65">
               کاربران
             </li>
           </Link>
-          <Link to="products">
+          <Link to="products/1">
             <li className="text-textPrimary text-lg font-medium p-1 mr-3 hover:text-textPrimary/65">
               محصولات
             </li>

@@ -1,45 +1,20 @@
 import React, { useContext, useState } from 'react';
 import AuthContext from '../../../Contexts/AuthContext';
+import Pagination from '../../../components/Pagination/Pagination';
+import { usersQuery } from '../../../hooks/usersQuery';
 
 export default function AdminUsers() {
+  const { data: usersData, isSuccess } = usersQuery();
+  const [shownUsers, setShownUsers] = useState();
   const [userRole, setUserRole] = useState('');
-  const authContext = useContext(AuthContext);
-
-  const useRegister = (event) => {
-    event.preventDefault();
-    const newUser = {
-      username: formState.inputs.username.value,
-      email: formState.inputs.email.value,
-      password: formState.inputs.password.value,
-      confirmPassword: formState.inputs.password.value,
-      name: formState.inputs.name.value,
-      phone: formState.inputs.phone.value,
-      role: userRole,
-    };
-    fetch('http://localhost:4000/v1/auth/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newUser),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else if (res.status === 403) {
-          swal({
-            title: 'این شماره تماس بن شده است',
-            icon: 'error',
-            button: 'ای بابا',
-          });
-        }
-      })
-      .then((result) => {
-        console.log(result);
-        authContext.login(result.user, result.accessToken);
-      });
+  const userEdit = (e) => {
+    e.preventDefault();
   };
   const selectRole = (event) => {
     setUserRole(event.target.value);
   };
+  const userRegister = () => {};
+
   return (
     <div className="w-[95%] mx-auto p-1 text-right">
       <div>
@@ -122,7 +97,7 @@ export default function AdminUsers() {
           <button
             className=" mt-4 py-2 px-5 rounded-md   bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base "
             type="submit"
-            onClick={useRegister}>
+            onClick={userRegister}>
             <span>ثبت نام</span>
           </button>
         </div>
@@ -150,24 +125,26 @@ export default function AdminUsers() {
                 <button>ادیت</button>
               </td>
             </tr>
-            <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
-              <td>امیر محمد</td>
-              <td>ali.1385.tajik@gmail.com</td>
-              <td>مدیر</td>
-              <td className="bg-bgPrimary border-bgPrimary/70 hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
-                <button>ادیت</button>
-              </td>
-            </tr>
-            <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
-              <td>محمد</td>
-              <td>ali.1385.tajik@gmail.com</td>
-              <td>کاربر</td>
-              <td className="bg-bgPrimary border-bgPrimary/70 hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
-                <button>ادیت</button>
-              </td>
-            </tr>
+            {shownUsers?.map((user) => (
+              <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
+                <td>{user.fullName}</td>
+                <td>{user.email}</td>
+                <td>{user.roll}</td>
+                <td className="bg-bgPrimary border-bgPrimary/70 hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
+                  <button onClick={(e) => userEdit(user.id)}>ادیت</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+        {isSuccess && (
+          <Pagination
+            itemCount={5}
+            setShownItems={setShownUsers}
+            items={usersData}
+            pathname="/admin-panel/users"
+          />
+        )}
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 export default function PrivatePAdmin({ children }) {
   const navigate = useNavigate();
   const authContext = useContext(AuthContext);
-  console.log(authContext.userInfo);
 
   return (
     <>

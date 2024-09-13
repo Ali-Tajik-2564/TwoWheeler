@@ -50,8 +50,8 @@ const routes = [
     ),
     children: [
       { path: '', element: <AdminMainPage /> },
-      { path: 'users', element: <AdminUsers /> },
-      { path: 'products', element: <AdminProduct /> },
+      { path: 'users/:page', element: <AdminUsers /> },
+      { path: 'products/:page', element: <AdminProduct /> },
       { path: 'articles', element: <AdminArticles /> },
       { path: 'orders', element: <AdminOrders /> },
     ],
