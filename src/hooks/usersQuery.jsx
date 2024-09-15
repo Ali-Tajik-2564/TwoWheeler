@@ -103,7 +103,7 @@ const editProfileImg = () => {
     },
   });
 };
-const NewUserQuery = () => {
+const UserRegisterQuery = () => {
   const authContext = useContext(AuthContext);
   return useMutation({
     mutationFn: (user) => {
@@ -120,10 +120,33 @@ const NewUserQuery = () => {
     },
   });
 };
+const newUserQuery = () => {
+  return useMutation({
+    mutationFn: (user) => {
+      fetch('http://localhost:3000/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user),
+      }).then((res) => res.json());
+    },
+  });
+};
+const deleteUserQuery = () => {
+  return useMutation({
+    mutationFn: (id) => {
+      fetch(`http://localhost:3000/users/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      }).then((res) => res.json());
+    },
+  });
+};
 export {
   editPasswordQuery,
   usersQuery,
   editInfoQuery,
   editProfileImg,
-  NewUserQuery,
+  UserRegisterQuery,
+  newUserQuery,
+  deleteUserQuery,
 };

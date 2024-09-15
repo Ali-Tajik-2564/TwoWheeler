@@ -10,7 +10,7 @@ import { Pagination } from 'swiper/modules';
 
 import './Slider.css';
 import { Link, useParams } from 'react-router-dom';
-import productQuery from '../../hooks/productQuery.jsx';
+import { productQuery } from '../../hooks/productQuery.jsx';
 import brandQuery from '../../hooks/brandQuery.jsx';
 
 export default function Item() {

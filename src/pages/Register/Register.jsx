@@ -6,7 +6,7 @@ import { userSchema } from './../../Validation/Validation';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import AuthContext from '../../Contexts/AuthContext';
-import { NewUserQuery } from '../../hooks/usersQuery';
+import { UserRegisterQuery } from '../../hooks/usersQuery';
 export default function Register() {
   const [visibilityPassword, setVisibilityPassword] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
@@ -17,7 +17,7 @@ export default function Register() {
   const [Email, setEmail] = useState(null);
   const [Password, setPassword] = useState(null);
   const authContext = useContext(AuthContext);
-  const { data, mutate: userMutate, isSuccess } = NewUserQuery();
+  const { data, mutate: userMutate, isSuccess } = UserRegisterQuery();
   console.log(data);
 
   const InputValidation = async (event) => {

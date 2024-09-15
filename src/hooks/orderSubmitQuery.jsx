@@ -3,13 +3,13 @@ import React from 'react';
 
 export default function orderSubmitQuery() {
   return useMutation({
-    mutationFn: (course) => {
+    mutationFn: (product) => {
       fetch('http://localhost:3000/payment', {
         method: 'POST',
         headers: {
           'COntent-Type': 'application/json',
         },
-        body: JSON.stringify({ ...course }),
+        body: JSON.stringify({ ...product }),
       }).then((res) => res.json());
     },
   });

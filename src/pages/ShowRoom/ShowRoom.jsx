@@ -5,7 +5,7 @@ import ProductBox from '../../components/ProductBox/ProductBox';
 import Pagination from '../../components/Pagination/Pagination';
 import categoryQuery from '../../hooks/CategoryQuery';
 import brandQuery from '../../hooks/brandQuery';
-import productQuery from '../../hooks/productQuery';
+import { productQuery } from '../../hooks/productQuery';
 
 export default function ShowRoom() {
   const [ShownProduct, setShownProduct] = useState();

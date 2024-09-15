@@ -1,14 +1,14 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import React from 'react';
 
-export default function productQuery(
+const productQuery = (
   StatusFilter,
   CategoryFilter,
   BrandFilter,
   NameProduct
-) {
+) => {
   return useQuery({
-    queryKey: 'Product',
+    queryKey: ['products'],
     queryFn: () => {
       return fetch('http://localhost:3000/product')
         .then((res) => res.json())
@@ -124,5 +124,36 @@ export default function productQuery(
       }
       return data;
     },
+    refetchInterval: 2000,
   });
-}
+};
+const newProductQuery = () => {
+  return useMutation({
+    mutationFn: (newProductData) => {
+      fetch(`http://localhost:3000/product`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newProductData),
+      }).then((res) => res.json());
+    },
+  });
+};
+const deleteProductQuery = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (productID) => {
+      fetch(`http://localhost:3000/product/${productID}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((res) => res.json());
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries('products');
+    },
+  });
+};
+export { productQuery, newProductQuery, deleteProductQuery };

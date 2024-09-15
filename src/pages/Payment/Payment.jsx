@@ -3,27 +3,34 @@ import { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import orderSubmitQuery from '../../hooks/orderSubmitQuery';
 import { useParams } from 'react-router-dom';
-import productQuery from '../../hooks/productQuery';
+import { productQuery } from '../../hooks/productQuery';
 import Swal from 'sweetalert2';
+import { usersQuery } from '../../hooks/usersQuery';
 export default function Payment() {
+  const userID = JSON.parse(localStorage.getItem('user'));
   const urlParam = useParams();
+  const { data: userData } = usersQuery(userID);
+  const { data: productData } = productQuery();
+  const product = productData?.filter((product) => product?.id === urlParam.id);
+  const { mutate: orderSubmitMutate } = orderSubmitQuery();
   const [bankName, setBankName] = useState();
   const [cvv, setCvv] = useState();
   const [fullNameInput, setFullName] = useState();
   const [cardNumber, SetCardNumber] = useState();
-  const [date, setDate] = useState();
-  const { data } = productQuery();
+  const [ExpDate, setExpDate] = useState();
+  const date = new Date();
 
-  const product = data?.filter((product) => product?.id === urlParam.id);
-  console.log(product);
-  const { mutate, isSuccess, error } = orderSubmitQuery();
   const SubmitOrder = (event) => {
     event.preventDefault();
-    mutate(
+
+    orderSubmitMutate(
       {
-        fullName: fullNameInput,
+        fullName: userData[0]?.fullName,
         price: product[0]?.price,
         productID: product[0]?.id,
+        status: 'pending',
+        date: date.toString().slice(0, 15),
+        email: userData[0]?.email,
       },
       {
         onSettled: () => {
@@ -142,8 +149,8 @@ export default function Payment() {
                 type="date"
                 name="Expiration Date"
                 className="focus:ring-0 focus:outline-none  text-bgPrimary/70 font-medium text-lg border-b-2 border-bgPrimary/30  bg-none w-auto"
-                value={date}
-                onChange={(event) => setDate(event.target.value)}
+                value={ExpDate}
+                onChange={(event) => setExpDate(event.target.value)}
               />
             </div>
 
@@ -183,30 +190,36 @@ export default function Payment() {
       </div>
 
       {/* item info  */}
-      <div className="lg:w-2/5 w-96  h-auto relative rounded-2xl overflow-hidden Payment-Box-Shadow  max-lg:mx-auto">
-        <img
-          src="../../Img/unsplash_7GeprSfqLQ.png"
-          alt=""
-          className="w-full h-auto bg-cover
+      {product && (
+        <>
+          <div className="lg:w-2/5 w-96  h-auto relative rounded-2xl overflow-hidden Payment-Box-Shadow  max-lg:mx-auto">
+            <img
+              src={`../${product[0]?.pics[0]}`}
+              alt=""
+              className="w-full h-full bg-contain
         rounded-lg -z-20 "
-        />
-        <div className="absolute  bottom-0 left-0 w-full h-auto bg-gradient-to-t from-slate-800  z-20 p-3">
-          <div className="flex flex-col items-start justify-start w-full h-auto space-y-4">
-            <p className="text-white font-bold text-xl ">Your Order : </p>
-            <p className="text-white font-bold text-xl ">
-              {product[0].brand} {product[0]?.name} (
-              {product[0].dateOfProduction})
-            </p>
-            <p className="text-white font-bold text-lg">
-              color : {product[0]?.color}{' '}
-            </p>
-            <p className="text-textPrimary font-bold text-2xl">
-              ${product[0]?.price}
-            </p>
+            />
+
+            <div className="absolute  bottom-0 left-0 w-full h-auto bg-gradient-to-t from-slate-800  z-20 p-3">
+              <div className="flex flex-col items-start justify-start w-full h-auto space-y-4">
+                <p className="text-white font-bold text-xl ">Your Order : </p>
+                <p className="text-white font-bold text-xl ">
+                  {product[0]?.brand} {product[0]?.name} (
+                  {product[0]?.dateOfProduction})
+                </p>
+                <p className="text-white font-bold text-lg">
+                  color : {product[0]?.color}{' '}
+                </p>
+                <p className="text-textPrimary font-bold text-2xl">
+                  ${product[0]?.price}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        {/* item info  */}
-      </div>
+        </>
+      )}
+
+      {/* item info  */}
     </div>
   );
 }

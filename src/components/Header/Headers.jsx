@@ -50,7 +50,7 @@ export default function Headers() {
             <li className="p-2 ">
               {/* login */}
               {authContext.isLoggedIn ? (
-                <Link to={'/UserPanel'} onClick={handleClose}>
+                <Link to={'/admin-panel'} onClick={handleClose}>
                   {authContext.userInfo[0]?.profile === '' ? (
                     <>
                       <img
@@ -111,7 +111,7 @@ export default function Headers() {
         <li className=" lg:p-4  p-3">
           {/* login */}
           {authContext.isLoggedIn ? (
-            <Link to={'/UserPanel'} onClick={handleClose}>
+            <Link to={'/admin-panel'} onClick={handleClose}>
               {authContext.userInfo[0]?.profile === '' ? (
                 <>
                   <img

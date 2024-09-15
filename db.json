@@ -1,23 +1,6 @@
 {
   "product": [
     {
-      "id": "5",
-      "name": "rc360",
-      "status": "new",
-      "price": "27.000",
-      "stock": "1",
-      "color": "blue",
-      "brand": "ducati",
-      "category": "off road",
-      "dateOfProduction": "2007",
-      "pics": [
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
-        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
-      ],
-      "code": "Ba3625YK3"
-    },
-    {
       "id": "12",
       "name": "rc360",
       "status": "new",
@@ -26,142 +9,6 @@
       "color": "blue",
       "brand": "ducati",
       "category": "off road",
-      "dateOfProduction": "2007",
-      "pics": [
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
-        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
-      ],
-      "code": "Ba3625YK3"
-    },
-    {
-      "id": "7",
-      "name": "rc360",
-      "status": "new",
-      "price": "27.000",
-      "stock": "1",
-      "color": "blue",
-      "brand": "ducati",
-      "category": "off road",
-      "dateOfProduction": "2007",
-      "pics": [
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
-        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
-      ],
-      "code": "Ba3625YK3"
-    },
-    {
-      "id": "8",
-      "name": "rc360",
-      "status": "new",
-      "price": "27.000",
-      "stock": "1",
-      "color": "blue",
-      "brand": "triumph",
-      "category": "off road",
-      "dateOfProduction": "2007",
-      "pics": [
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
-        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
-      ],
-      "code": "Ba3625YK3"
-    },
-    {
-      "id": "9",
-      "name": "rc360",
-      "status": "new",
-      "price": "27.000",
-      "stock": "1",
-      "color": "blue",
-      "brand": "triumph",
-      "category": "off road",
-      "dateOfProduction": "2007",
-      "pics": [
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
-        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
-      ],
-      "code": "Ba3625YK3"
-    },
-    {
-      "id": "10",
-      "name": "rb35",
-      "status": "used",
-      "price": "27.000",
-      "stock": "1",
-      "color": "blue",
-      "brand": "triumph",
-      "category": "off road",
-      "dateOfProduction": "2007",
-      "pics": [
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
-        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
-      ],
-      "code": "Ba3625YK3"
-    },
-    {
-      "id": "1",
-      "name": "rc360",
-      "status": "used",
-      "price": "27.000",
-      "stock": "1",
-      "color": "blue",
-      "brand": "triumph",
-      "category": "touring",
-      "dateOfProduction": "2007",
-      "pics": [
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
-        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
-      ],
-      "code": "Ba3625YK3"
-    },
-    {
-      "id": "2",
-      "name": "rc360",
-      "status": "used",
-      "price": "27.000",
-      "stock": "1",
-      "color": "blue",
-      "brand": "yamaha",
-      "category": "sport",
-      "dateOfProduction": "2007",
-      "pics": [
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
-        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
-      ],
-      "code": "Ba3625YK3"
-    },
-    {
-      "id": "3",
-      "name": "rc360",
-      "status": "used",
-      "price": "27.000",
-      "stock": "1",
-      "color": "blue",
-      "brand": "yamaha",
-      "category": "sport",
-      "dateOfProduction": "2007",
-      "pics": [
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
-        "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64606.png",
-        "./Img/2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled-1.png"
-      ],
-      "code": "Ba3625YK3"
-    },
-    {
-      "id": "4",
-      "name": "rc360",
-      "status": "used",
-      "price": "27.000",
-      "stock": "1",
-      "color": "blue",
-      "brand": "yamaha",
-      "category": "sport",
       "dateOfProduction": "2007",
       "pics": [
         "./Img/001_Ducati1199Panigale_BikeIconics_June2019_D8J_64604.png",
@@ -207,91 +54,19 @@
       "id": "1",
       "fullName": "ali tajik",
       "price": "27.000",
-      "productID": "1"
+      "productID": "1",
+      "status": "send",
+      "date": "2001",
+      "email": "ali.1385.tajik.a@gamil.com"
     },
     {
-      "id": "2",
-      "fullName": "Raising",
-      "price": "24.000",
-      "productID": "2"
-    },
-    {
-      "id": "3",
-      "fullName": "ali tajik",
-      "price": "254.000",
-      "productID": "3"
-    },
-    {
-      "id": "bc4e",
-      "fullName": "",
+      "id": "56a1",
+      "fullName": "AliTK",
       "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "aed5",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "8c6f",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "5851",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "4ff9",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "1668",
-      "fullName": "",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "1f3c",
-      "fullName": "",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "00ce",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "40f5",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "3c30",
-      "fullName": "",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "f569",
-      "fullName": "",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "cf15",
-      "fullName": "",
-      "price": "27.000",
-      "productID": "12"
-    },
-    {
-      "id": "54ab",
-      "fullName": "alidsf",
-      "price": "27.000",
-      "productID": "12"
+      "productID": "7",
+      "status": "pending",
+      "date": "Sun Sep 15 2024",
+      "email": "alitajik1385@gmail.com"
     }
   ],
   "users": [
@@ -307,7 +82,9 @@
           "id": "1",
           "date": "2001",
           "price": "27.000",
-          "status": "send"
+          "email": "ali.1385.tajik.a@gamil.com",
+          "status": "send",
+          "productID": "2"
         }
       ]
     },
@@ -353,15 +130,6 @@
       "orderHistory": []
     },
     {
-      "id": "87bc",
-      "fullName": "mohammad",
-      "email": "mohammad@gamil.com",
-      "password": "123879",
-      "profile": "",
-      "orderHistory": [],
-      "roll": "admin"
-    },
-    {
       "id": "f4d4",
       "fullName": "alireza",
       "email": "alireza@gamil.com",
@@ -396,6 +164,15 @@
       "profile": "logo-1.png",
       "orderHistory": [],
       "roll": "admin"
+    },
+    {
+      "id": "0805",
+      "fullName": "ali2564",
+      "email": "ali.tajik.1385.a@gmail.com",
+      "password": "aaaaa",
+      "profile": "C:\\fakepath\\2015-Kawasaki-Ninja-ZX-6R-30th-Anniversary-01-scaled 2.png",
+      "orderHistory": [],
+      "roll": "user"
     }
   ],
   "article": [

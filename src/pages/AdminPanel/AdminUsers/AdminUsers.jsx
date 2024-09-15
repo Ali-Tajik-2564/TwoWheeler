@@ -1,13 +1,27 @@
 import React, { useContext, useState } from 'react';
 import AuthContext from '../../../Contexts/AuthContext';
 import Pagination from '../../../components/Pagination/Pagination';
-import { editInfoQuery, usersQuery } from '../../../hooks/usersQuery';
+import {
+  deleteUserQuery,
+  editInfoQuery,
+  newUserQuery,
+  usersQuery,
+} from '../../../hooks/usersQuery';
 import Swal from 'sweetalert2';
+import { useQueryClient } from '@tanstack/react-query';
 export default function AdminUsers() {
+  const queryClient = useQueryClient();
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [profile, setProfile] = useState({});
   const { data: usersData, isSuccess } = usersQuery();
   const [shownUsers, setShownUsers] = useState();
-  const [userRole, setUserRole] = useState('');
+  const [userRole, setUserRole] = useState('user');
   const { mutate: infoMutate } = editInfoQuery();
+  const { mutate: userMutate } = newUserQuery();
+  const { mutate: deleteMutate } = deleteUserQuery();
 
   const userEdit = (userID) => {
     let userInfo = usersData?.filter((user) => user.id === userID);
@@ -57,8 +71,39 @@ export default function AdminUsers() {
   const selectRole = (event) => {
     setUserRole(event.target.value);
   };
-  const userRegister = () => {};
-
+  const userRegister = () => {
+    let newUser = {
+      fullName: username,
+      email,
+      password,
+      profile,
+      orderHistory: [],
+      roll: userRole,
+    };
+    userMutate(newUser, {
+      onSuccess: () => {
+        Swal.fire({
+          title: 'new user added successfully ',
+          icon: 'success',
+          confirmButtonText: 'Great !!',
+        }).then(() => {
+          queryClient.invalidateQueries('users');
+        });
+      },
+    });
+  };
+  const deleteUser = (userID) => {
+    deleteMutate(userID, {
+      onSuccess: () => {
+        Swal.fire({
+          title: 'user deleted successfully ',
+          icon: 'success',
+        }).then(() => {
+          queryClient.invalidateQueries('users');
+        });
+      },
+    });
+  };
   return (
     <div className="w-[95%] mx-auto p-1 text-right">
       <div>
@@ -79,6 +124,8 @@ export default function AdminUsers() {
               name="name"
               id="username"
               className="w-full p-1 px-2 bg-bgPrimary/20 text-textPrimary font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div>
@@ -86,14 +133,16 @@ export default function AdminUsers() {
               htmlFor="name"
               className="text-lg font-thin text-textPrimary/75">
               {' '}
-              : شماره تلفن
+              : رمز عبور
             </label>
 
             <input
               type="text"
-              name="phone"
-              id="phone"
+              name="password"
+              id="password"
               className="w-full p-1 px-2 bg-bgPrimary/20 text-textPrimary font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div>
@@ -109,22 +158,27 @@ export default function AdminUsers() {
               name="email"
               id="email"
               className="w-full p-1 px-2 bg-bgPrimary/20 text-textPrimary font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
             <label
-              htmlFor="password"
+              htmlFor="email"
               className="text-lg font-thin text-textPrimary/75">
               {' '}
-              :رمز عبور{' '}
+              : پروفایل کاربر{' '}
             </label>
+
             <input
-              type="password"
-              name="password"
-              id="password"
+              type="file"
+              name="profile"
+              id="profile"
               className="w-full p-1 px-2 bg-bgPrimary/20 text-textPrimary font-medium text-lg border rounded-md shadow-md focus:outline-none  m-1"
+              onChange={(e) => setProfile(e.target.files[0])}
             />
           </div>
+
           <div className="flex flex-row-reverse gap-x-2">
             <label
               htmlFor="password"
@@ -133,8 +187,9 @@ export default function AdminUsers() {
               : نقش کاربر
             </label>
             <select onChange={selectRole}>
-              <option value="ADMIN">ادمین</option>
-              <option value="USER">کاربر</option>
+              <option value="user">user roll</option>
+              <option value="admin">ادمین</option>
+              <option value="user">کاربر</option>
             </select>
           </div>
 
@@ -157,6 +212,7 @@ export default function AdminUsers() {
               <td>نام نام خانوادگی</td>
               <td>پست الکترونیک</td>
               <td>عنوان</td>
+              <td>حذف</td>
               <td>ادیت</td>
             </tr>
           </thead>
@@ -166,6 +222,9 @@ export default function AdminUsers() {
                 <td>{user.fullName}</td>
                 <td>{user.email}</td>
                 <td>{user.roll}</td>
+                <td className="bg-bgPrimary border-bgPrimary/70 hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
+                  <button onClick={(e) => deleteUser(user.id)}>حذف</button>
+                </td>
                 <td className="bg-bgPrimary border-bgPrimary/70 hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
                   <button onClick={(e) => userEdit(user.id)}>ادیت</button>
                 </td>

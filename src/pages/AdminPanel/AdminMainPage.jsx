@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { usersQuery } from '../../hooks/usersQuery';
-import productQuery from '../../hooks/productQuery';
+import { productQuery } from '../../hooks/productQuery';
 export default function AdminMainPage() {
   const { data: usersData } = usersQuery();
   let newUsers = usersData?.slice(0, 3);
