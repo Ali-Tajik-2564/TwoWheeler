@@ -12,7 +12,6 @@ export default function Pagination({
 }) {
   const [pageCount, setPageCount] = useState(null);
   const { page } = useParams();
-  console.log(page);
 
   useEffect(() => {
     let endIndex = itemCount * page;

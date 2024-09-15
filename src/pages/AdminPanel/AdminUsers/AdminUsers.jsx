@@ -1,15 +1,59 @@
 import React, { useContext, useState } from 'react';
 import AuthContext from '../../../Contexts/AuthContext';
 import Pagination from '../../../components/Pagination/Pagination';
-import { usersQuery } from '../../../hooks/usersQuery';
-
+import { editInfoQuery, usersQuery } from '../../../hooks/usersQuery';
+import Swal from 'sweetalert2';
 export default function AdminUsers() {
   const { data: usersData, isSuccess } = usersQuery();
   const [shownUsers, setShownUsers] = useState();
   const [userRole, setUserRole] = useState('');
-  const userEdit = (e) => {
-    e.preventDefault();
+  const { mutate: infoMutate } = editInfoQuery();
+
+  const userEdit = (userID) => {
+    let userInfo = usersData?.filter((user) => user.id === userID);
+    Swal.fire({
+      title: 'User information',
+      showCancelButton: true,
+      html: `
+        <input id="swal-input1" class="swal2-input" placeholder="Full Name" value=${userInfo[0]?.fullName}>
+        <input id="swal-input2" class="swal2-input" placeholder="Email" value=${userInfo[0]?.email}>
+        <input id="swal-input3" class="swal2-input" placeholder="Roll" value=${userInfo[0]?.roll}>
+      `,
+      focusConfirm: false,
+      preConfirm: () => {
+        return [
+          document.getElementById('swal-input1').value,
+          document.getElementById('swal-input2').value,
+          document.getElementById('swal-input3').value,
+        ];
+      },
+    }).then((res) => {
+      if (res.value) {
+        infoMutate(
+          {
+            user: userInfo,
+            id: userID,
+            fullName: res.value[0],
+            email: res.value[1],
+            roll: res.value[2],
+          },
+
+          {
+            onSuccess: () => {
+              Swal.fire({
+                title:
+                  'your change has been submitted , you can check it from your Panel ',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                confirmButtonColor: '#083344',
+              });
+            },
+          }
+        );
+      }
+    });
   };
+
   const selectRole = (event) => {
     setUserRole(event.target.value);
   };
@@ -117,14 +161,6 @@ export default function AdminUsers() {
             </tr>
           </thead>
           <tbody>
-            <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
-              <td>علی تاجیک</td>
-              <td>ali.1385.tajik@gmail.com</td>
-              <td>مدیر</td>
-              <td className="bg-bgPrimary border-bgPrimary/70 hover:bg-bgPrimary/70  p-1 px-2 rounded-sm">
-                <button>ادیت</button>
-              </td>
-            </tr>
             {shownUsers?.map((user) => (
               <tr className="p-2 text-base font-light  flex justify-between text-textPrimary items-center flex-row-reverse">
                 <td>{user.fullName}</td>

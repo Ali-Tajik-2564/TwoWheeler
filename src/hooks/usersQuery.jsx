@@ -46,21 +46,39 @@ const editPasswordQuery = () => {
 const editInfoQuery = () => {
   return useMutation({
     mutationFn: (data) => {
-      fetch(`http://localhost:3000/users/${data.id}`, {
-        method: 'PUT',
-        headers: {
-          'COntent-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          id: data.id,
-          fullName: data.fullName,
-          email: data.email,
-          password: data.user[0].password,
-          profile: data.user[0].profile,
-          orderHistory: data.user[0].orderHistory,
-          roll: data.user[0].roll,
-        }),
-      }).then((res) => res.json());
+      if (data.roll) {
+        fetch(`http://localhost:3000/users/${data.id}`, {
+          method: 'PUT',
+          headers: {
+            'COntent-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: data.id,
+            fullName: data.fullName,
+            email: data.email,
+            password: data.user[0].password,
+            profile: data.user[0].profile,
+            orderHistory: data.user[0].orderHistory,
+            roll: data.roll,
+          }),
+        }).then((res) => res.json());
+      } else {
+        fetch(`http://localhost:3000/users/${data.id}`, {
+          method: 'PUT',
+          headers: {
+            'COntent-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: data.id,
+            fullName: data.fullName,
+            email: data.email,
+            password: data.user[0].password,
+            profile: data.user[0].profile,
+            orderHistory: data.user[0].orderHistory,
+            roll: data.user[0].roll,
+          }),
+        }).then((res) => res.json());
+      }
     },
   });
 };
