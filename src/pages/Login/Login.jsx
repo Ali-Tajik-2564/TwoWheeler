@@ -51,7 +51,7 @@ export default function Login() {
             icon: 'success',
             confirmButtonText: 'let brows the products',
           }).then(() => {
-            navigate('/admin-panel/');
+            navigate('/');
           });
         } else {
           Swal.fire({

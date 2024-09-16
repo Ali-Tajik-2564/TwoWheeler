@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import articlesQuery from '../../hooks/articlesQuery';
+import {articlesQuery} from '../../hooks/articlesQuery';
 
 export default function Blog() {
   const articleID = useParams();

@@ -1,7 +1,47 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import React from 'react';
 
-export default function orderSubmitQuery() {
+const ordersQuery = (email) => {
+  return useQuery({
+    queryKey: ['orders', email],
+    queryFn: () => {
+      return fetch('http://localhost:3000/payment')
+        .then((res) => res.json())
+        .then((result) => result);
+    },
+
+    select: (data) => {
+      if (email) {
+        return data.filter((order) => order.email === email);
+      } else {
+        return data;
+      }
+    },
+    refetchInterval: 2000,
+  });
+};
+const orderStatusQuery = () => {
+  return useMutation({
+    mutationFn: (data) => {
+      fetch(`http://localhost:3000/payment/${data.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: data.id,
+          fullName: data.order.fullName,
+          price: data.order.price,
+          productID: data.order.productID,
+          status: 'send',
+          date: data.order.date,
+          email: data.order.email,
+        }),
+      }).then((res) => res.json());
+    },
+  });
+};
+const orderSubmitQuery = () => {
   return useMutation({
     mutationFn: (product) => {
       fetch('http://localhost:3000/payment', {
@@ -13,4 +53,5 @@ export default function orderSubmitQuery() {
       }).then((res) => res.json());
     },
   });
-}
+};
+export { orderSubmitQuery, ordersQuery, orderStatusQuery };

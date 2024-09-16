@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ArticleBox from '../../components/ArticleBox/ArticleBox';
 import Pagination from '../../components/Pagination/Pagination';
 import { Link } from 'react-router-dom';
-import articlesQuery from '../../hooks/articlesQuery';
+import { articlesQuery } from '../../hooks/articlesQuery';
 import { useQuery } from '@tanstack/react-query';
 
 export default function BlogList() {

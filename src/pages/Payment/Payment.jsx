@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import orderSubmitQuery from '../../hooks/orderSubmitQuery';
+import { orderSubmitQuery } from '../../hooks/orderSubmitQuery';
 import { useParams } from 'react-router-dom';
 import { productQuery } from '../../hooks/productQuery';
 import Swal from 'sweetalert2';

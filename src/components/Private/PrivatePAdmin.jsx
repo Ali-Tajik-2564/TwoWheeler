@@ -14,7 +14,7 @@ export default function PrivatePAdmin({ children }) {
           {authContext.userInfo[0]?.roll === 'admin' ? (
             <>{children}</>
           ) : (
-            navigate('/')
+            navigate('/UserPanel')
           )}
         </>
       )}

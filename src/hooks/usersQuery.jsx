@@ -36,7 +36,7 @@ const editPasswordQuery = () => {
           email: data.user[0].email,
           password: data.password,
           profile: data.user[0].profile,
-          orderHistory: data.user[0].orderHistory,
+
           roll: data.user[0].roll,
         }),
       }).then((res) => res.json());
@@ -58,7 +58,7 @@ const editInfoQuery = () => {
             email: data.email,
             password: data.user[0].password,
             profile: data.user[0].profile,
-            orderHistory: data.user[0].orderHistory,
+
             roll: data.roll,
           }),
         }).then((res) => res.json());
@@ -74,7 +74,7 @@ const editInfoQuery = () => {
             email: data.email,
             password: data.user[0].password,
             profile: data.user[0].profile,
-            orderHistory: data.user[0].orderHistory,
+
             roll: data.user[0].roll,
           }),
         }).then((res) => res.json());
@@ -96,7 +96,7 @@ const editProfileImg = () => {
           email: data.user[0].email,
           password: data.user[0].password,
           profile: data.profile,
-          orderHistory: data.user[0].orderHistory,
+
           roll: data.user[0].roll,
         }),
       }).then((res) => res.json());

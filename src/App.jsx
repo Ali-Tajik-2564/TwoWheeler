@@ -11,7 +11,6 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import AuthContext from './Contexts/AuthContext';
 import { useCallback, useState, useEffect } from 'react';
@@ -62,11 +61,6 @@ function App() {
             logout,
             isLoggedIn,
           }}>
-          <ReactQueryDevtools
-            initialIsOpen={false}
-            position="right"
-            buttonPosition="top-right"
-          />
           <Headers />
 
           {router}

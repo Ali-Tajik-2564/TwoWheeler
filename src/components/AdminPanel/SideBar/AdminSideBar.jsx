@@ -44,12 +44,12 @@ export default function AdminSideBar({ onSlideShow, setOnSlideShow }) {
               محصولات
             </li>
           </Link>
-          <Link to="articles">
+          <Link to="articles/1">
             <li className="text-textPrimary text-lg font-medium p-1 mr-3 hover:text-textPrimary/65">
               مقاله ها
             </li>
           </Link>
-          <Link to="orders">
+          <Link to="orders/1">
             <li className="text-textPrimary text-lg font-medium p-1 mr-3 hover:text-textPrimary/65">
               سفارشات
             </li>
@@ -100,24 +100,14 @@ export default function AdminSideBar({ onSlideShow, setOnSlideShow }) {
                     محصولات
                   </li>
                 </Link>
-                <Link to="articles" onClick={() => handleClose()}>
+                <Link to="articles/1" onClick={() => handleClose()}>
                   <li className="text-textPrimary text-lg font-medium p-1 mr-3 hover:text-textPrimary/65">
                     مقاله ها
                   </li>
                 </Link>
-                <Link to="orders" onClick={() => handleClose()}>
+                <Link to="orders/1" onClick={() => handleClose()}>
                   <li className="text-textPrimary text-lg font-medium p-1 mr-3 hover:text-textPrimary/65">
                     سفارشات
-                  </li>
-                </Link>
-                <Link to="comments" onClick={() => handleClose()}>
-                  <li className="text-textPrimary text-lg font-medium p-1 mr-3 hover:text-textPrimary/65">
-                    کامنت ها
-                  </li>
-                </Link>
-                <Link to="offs" onClick={() => handleClose()}>
-                  <li className="text-textPrimary text-lg font-medium p-1 mr-3 hover:text-textPrimary/65">
-                    تخفیف ها
                   </li>
                 </Link>
 

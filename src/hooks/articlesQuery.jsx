@@ -1,7 +1,19 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import React from 'react';
-
-export default function articlesQuery(id) {
+const articlesSubmitQuery = () => {
+  return useMutation({
+    mutationFn: (article) => {
+      fetch('http://localhost:3000/article', {
+        method: 'POST',
+        headers: {
+          'COntent-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...article }),
+      }).then((res) => res.json());
+    },
+  });
+};
+const articlesQuery = (id) => {
   return useQuery({
     queryKey: ['articles', id],
     queryFn: () => {
@@ -17,5 +29,45 @@ export default function articlesQuery(id) {
         return data;
       }
     },
+    refetchInterval: 2000,
   });
-}
+};
+const editPublishQuery = () => {
+  return useMutation({
+    mutationFn: (data) => {
+      fetch(`http://localhost:3000/article/${data.id}`, {
+        method: 'PUT',
+        headers: {
+          'COntent-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: data.id,
+          title: data.article[0].title,
+          desc: data.article[0].desc,
+          completed: data.article[0].completed,
+          published: !data.article[0].published,
+          pic: data.article[0].pic,
+          body: data.article[0].body,
+        }),
+      }).then((res) => res.json());
+    },
+  });
+};
+const deleteArticleQuery = () => {
+  return useMutation({
+    mutationFn: (articleID) => {
+      fetch(`http://localhost:3000/article/${articleID}`, {
+        method: 'DELETE',
+        headers: {
+          'COntent-Type': 'application/json',
+        },
+      }).then((res) => res.json());
+    },
+  });
+};
+export {
+  articlesQuery,
+  articlesSubmitQuery,
+  editPublishQuery,
+  deleteArticleQuery,
+};
