@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdVisibility } from 'react-icons/md';
 import { MdVisibilityOff } from 'react-icons/md';
-import { userSchema } from './../../Validation/Validation';
+import { userSchema } from '../../Validation/Validation';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import AuthContext from '../../Contexts/AuthContext';
