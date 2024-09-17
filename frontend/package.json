@@ -2,6 +2,7 @@
   "name": "twowheeler",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://Ali-Tajik-2564.github.io/TwoWheeler",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,6 +20,7 @@
     "ckeditor5": "^43.0.0",
     "ckeditor5-premium-features": "^43.0.0",
     "formik": "^2.4.6",
+    "git": "^0.1.5",
     "json-server": "^1.0.0-alpha.21",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
