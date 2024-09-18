@@ -3,7 +3,7 @@ import React from 'react';
 const articlesSubmitQuery = () => {
   return useMutation({
     mutationFn: (article) => {
-      fetch('http://localhost:3000/article', {
+      fetch('https://twowheeler-backend.liara.run/article', {
         method: 'POST',
         headers: {
           'COntent-Type': 'application/json',
@@ -17,7 +17,7 @@ const articlesQuery = (id) => {
   return useQuery({
     queryKey: ['articles', id],
     queryFn: () => {
-      return fetch('http://localhost:3000/article')
+      return fetch('https://twowheeler-backend.liara.run/article')
         .then((res) => res.json())
         .then((result) => result);
     },
@@ -35,7 +35,7 @@ const articlesQuery = (id) => {
 const editPublishQuery = () => {
   return useMutation({
     mutationFn: (data) => {
-      fetch(`http://localhost:3000/article/${data.id}`, {
+      fetch(`https://twowheeler-backend.liara.run/article/${data.id}`, {
         method: 'PUT',
         headers: {
           'COntent-Type': 'application/json',
@@ -56,7 +56,7 @@ const editPublishQuery = () => {
 const deleteArticleQuery = () => {
   return useMutation({
     mutationFn: (articleID) => {
-      fetch(`http://localhost:3000/article/${articleID}`, {
+      fetch(`https://twowheeler-backend.liara.run/article/${articleID}`, {
         method: 'DELETE',
         headers: {
           'COntent-Type': 'application/json',
