@@ -22,7 +22,7 @@ import UserPanel from './pages/UserPanel/UserPanel';
 import OrderHistory from './pages/orderHistory/orderHistory';
 const routes = [
   {
-    path: '/',
+    path: '/TwoWheeler/',
     element: <Landing />,
   },
   { path: '/register', element: <Register /> },
