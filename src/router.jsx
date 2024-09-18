@@ -25,8 +25,8 @@ const routes = [
     path: '/TwoWheeler',
     element: <Landing />,
   },
-  { path: '/TwoWheeler/register', element: <Register /> },
-  { path: '/TwoWheeler/login', element: <Login /> },
+  { path: '/register', element: <Register /> },
+  { path: '/login', element: <Login /> },
   {
     path: '/UserPanel',
     element: <UserPanel />,
