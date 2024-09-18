@@ -10,7 +10,7 @@ const productQuery = (
   return useQuery({
     queryKey: ['products'],
     queryFn: () => {
-      return fetch('http://localhost:3000/product')
+      return fetch('https://twowheeler-backend.liara.run/product')
         .then((res) => res.json())
         .then((result) => result);
     },
@@ -130,7 +130,7 @@ const productQuery = (
 const newProductQuery = () => {
   return useMutation({
     mutationFn: (newProductData) => {
-      fetch(`http://localhost:3000/product`, {
+      fetch(`https://twowheeler-backend.liara.run/product`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -144,7 +144,7 @@ const deleteProductQuery = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (productID) => {
-      fetch(`http://localhost:3000/product/${productID}`, {
+      fetch(`https://twowheeler-backend.liara.run/product/${productID}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

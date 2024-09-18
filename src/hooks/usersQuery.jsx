@@ -6,7 +6,7 @@ const usersQuery = (id) => {
   return useQuery({
     queryKey: ['users', id],
     queryFn: () => {
-      return fetch('http://localhost:3000/users')
+      return fetch('https://twowheeler-backend.liara.run/users')
         .then((res) => res.json())
         .then((result) => result);
     },
@@ -25,7 +25,7 @@ const usersQuery = (id) => {
 const editPasswordQuery = () => {
   return useMutation({
     mutationFn: (data) => {
-      fetch(`http://localhost:3000/users/${data.id}`, {
+      fetch(`https://twowheeler-backend.liara.run/users/${data.id}`, {
         method: 'PUT',
         headers: {
           'COntent-Type': 'application/json',
@@ -47,7 +47,7 @@ const editInfoQuery = () => {
   return useMutation({
     mutationFn: (data) => {
       if (data.roll) {
-        fetch(`http://localhost:3000/users/${data.id}`, {
+        fetch(`https://twowheeler-backend.liara.run/users/${data.id}`, {
           method: 'PUT',
           headers: {
             'COntent-Type': 'application/json',
@@ -63,7 +63,7 @@ const editInfoQuery = () => {
           }),
         }).then((res) => res.json());
       } else {
-        fetch(`http://localhost:3000/users/${data.id}`, {
+        fetch(`https://twowheeler-backend.liara.run/users/${data.id}`, {
           method: 'PUT',
           headers: {
             'COntent-Type': 'application/json',
@@ -85,7 +85,7 @@ const editInfoQuery = () => {
 const editProfileImg = () => {
   return useMutation({
     mutationFn: (data) => {
-      fetch(`http://localhost:3000/users/${data.id}`, {
+      fetch(`https://twowheeler-backend.liara.run/users/${data.id}`, {
         method: 'PUT',
         headers: {
           'COntent-Type': 'application/json',
@@ -107,7 +107,7 @@ const UserRegisterQuery = () => {
   const authContext = useContext(AuthContext);
   return useMutation({
     mutationFn: (user) => {
-      fetch('http://localhost:3000/users', {
+      fetch('https://twowheeler-backend.liara.run/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user),
@@ -123,7 +123,7 @@ const UserRegisterQuery = () => {
 const newUserQuery = () => {
   return useMutation({
     mutationFn: (user) => {
-      fetch('http://localhost:3000/users', {
+      fetch('https://twowheeler-backend.liara.run/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user),
@@ -134,7 +134,7 @@ const newUserQuery = () => {
 const deleteUserQuery = () => {
   return useMutation({
     mutationFn: (id) => {
-      fetch(`http://localhost:3000/users/${id}`, {
+      fetch(`https://twowheeler-backend.liara.run/users/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
       }).then((res) => res.json());

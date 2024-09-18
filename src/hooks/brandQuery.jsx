@@ -5,7 +5,7 @@ export default function brandQuery() {
   return useQuery({
     queryKey: ['brand'],
     queryFn: () => {
-      return fetch('http://localhost:3000/brand')
+      return fetch('https://twowheeler-backend.liara.run/brand')
         .then((res) => res.json())
         .then((result) => result);
     },

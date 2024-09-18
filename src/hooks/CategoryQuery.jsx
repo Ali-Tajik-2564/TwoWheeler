@@ -5,7 +5,7 @@ export default function categoryQuery() {
   return useQuery({
     queryKey: ['category'],
     queryFn: () => {
-      return fetch('http://localhost:3000/category')
+      return fetch('https://twowheeler-backend.liara.run/category')
         .then((res) => res.json())
         .then((result) => result);
     },

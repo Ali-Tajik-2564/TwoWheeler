@@ -5,7 +5,7 @@ const ordersQuery = (email) => {
   return useQuery({
     queryKey: ['orders', email],
     queryFn: () => {
-      return fetch('http://localhost:3000/payment')
+      return fetch('https://twowheeler-backend.liara.run/payment')
         .then((res) => res.json())
         .then((result) => result);
     },
@@ -23,7 +23,7 @@ const ordersQuery = (email) => {
 const orderStatusQuery = () => {
   return useMutation({
     mutationFn: (data) => {
-      fetch(`http://localhost:3000/payment/${data.id}`, {
+      fetch(`https://twowheeler-backend.liara.run/payment/${data.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const orderStatusQuery = () => {
 const orderSubmitQuery = () => {
   return useMutation({
     mutationFn: (product) => {
-      fetch('http://localhost:3000/payment', {
+      fetch('https://twowheeler-backend.liara.run/payment', {
         method: 'POST',
         headers: {
           'COntent-Type': 'application/json',
