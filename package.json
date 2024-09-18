@@ -2,7 +2,7 @@
   "name": "twowheeler",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://Ali-Tajik-2564.github.io/TwoWheeler",
+  "homepage": "https://Ali-Tajik-2564.github.io/TwoWheeler/",
   "type": "module",
   "scripts": {
     "dev": "vite",
