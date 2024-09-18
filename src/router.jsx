@@ -56,7 +56,7 @@ const routes = [
       { path: 'orders/:page', element: <AdminOrders /> },
     ],
   },
-  { path: '/item/:id', element: <Item /> },
+  { path: '/TwoWheeler/item/:id', element: <Item /> },
   {
     path: '/blogs/:page',
     element: <BlogList />,
