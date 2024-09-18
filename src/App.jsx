@@ -22,6 +22,11 @@ function App() {
 
   const [userInfo, setUserInfo] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
+  useEffect(() => {
+    fetch('https://twowheeler-backend.liara.run/product')
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+  }, []);
   const GetUser = () => {};
   const login = (userInfo, id) => {
     setUserId(id);
