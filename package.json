@@ -2,15 +2,15 @@
   "name": "twowheeler",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://Ali-Tajik-2564.github.io/TwoWheeler/",
+  "homepage": "https://{username}.github.io/{repo-name}/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^9.0.0",
