@@ -38,7 +38,7 @@ export default function Item() {
                   className="mySwiper md:h-full h-auto md:w-full w-4/5 ">
                   {product[0]?.pics.map((pic) => (
                     <SwiperSlide>
-                      <img src={`../../${pic}`} alt="" />
+                      <img src={`../${pic}`} alt="" />
                     </SwiperSlide>
                   ))}
                 </Swiper>

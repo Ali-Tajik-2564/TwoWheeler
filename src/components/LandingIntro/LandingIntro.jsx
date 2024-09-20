@@ -21,7 +21,7 @@ export default function LandingIntro() {
         </Link>
       </div>
       <img
-        src="./Img/Versys-650-2-1.jpg "
+        src="./Versys-650-2-1.jpg"
         alt="landing-page-img"
         className="md:w-3/5 w-full h-auto m-0  md:-z-10  bg-contain md:opacity-1 opacity-85
           "

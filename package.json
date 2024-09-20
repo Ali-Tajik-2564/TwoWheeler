@@ -2,7 +2,6 @@
   "name": "twowheeler",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://{username}.github.io/{repo-name}/",
   "type": "module",
   "scripts": {
     "dev": "vite",

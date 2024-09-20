@@ -4,7 +4,7 @@ export default function WhyUs() {
   return (
     <div className="w-full h-auto bg-bgPrimary xl:p-14 lg:p-8  p-4 flex md:flex-row flex-col-reverse items-center justify-between md:space-x-16 ">
       <img
-        src="./Img/Rectangle.jpg"
+        src=".././Rectangle.jpg"
         alt=""
         className=" lg:h-auto md:h-80 h-96  md:w-auto w-full    rounded-xl md:m-0 my-6"
       />

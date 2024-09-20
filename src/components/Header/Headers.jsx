@@ -54,14 +54,14 @@ export default function Headers() {
                   {authContext.userInfo[0]?.profile === '' ? (
                     <>
                       <img
-                        src="../../Img/noProfileIcon.png"
+                        src=".././noProfileIcon.png"
                         className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
                       />
                     </>
                   ) : (
                     <>
                       <img
-                        src={`../../Img/${authContext.userInfo[0]?.profile}`}
+                        src={`.././${authContext.userInfo[0]?.profile}`}
                         className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
                       />
                     </>
@@ -115,14 +115,14 @@ export default function Headers() {
               {authContext.userInfo[0]?.profile === '' ? (
                 <>
                   <img
-                    src="../../Img/noProfileIcon.png"
+                    src=".././noProfileIcon.png"
                     className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
                   />
                 </>
               ) : (
                 <>
                   <img
-                    src={`../../Img/${authContext.userInfo[0]?.profile}`}
+                    src={`.././${authContext.userInfo[0]?.profile}`}
                     className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
                   />
                 </>

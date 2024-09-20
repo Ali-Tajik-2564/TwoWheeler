@@ -23,7 +23,7 @@ export default function CmsTopBar({ setOnSlideShow }) {
         <>
           <div className="flex flex-row-reverse items-center justify-center gap-3">
             <img
-              src={`../../Img/${adminData[0]?.profile}`}
+              src={`../.././${adminData[0]?.profile}`}
               className="w-14 h-14 rounded-full shadow-sm cursor-pointer"
               alt=""
               onClick={() => setOnSlideShow(true)}

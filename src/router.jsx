@@ -34,7 +34,6 @@ const routes = [
   { path: '/orderHistory', element: <OrderHistory /> },
   { path: '/specs:name', element: <Specs /> },
   { path: '/contact-us', element: <Contact /> },
-  { path: '/check-out', element: <CheckOut /> },
   { path: '/Payment-info/:id', element: <Payment /> },
   { path: '/*', element: <NotFound /> },
   {

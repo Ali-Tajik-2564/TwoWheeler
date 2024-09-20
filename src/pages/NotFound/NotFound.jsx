@@ -22,7 +22,7 @@ export default function NotFound() {
         </Link>
       </div>
       <img
-        src="../../../Img/image-23.png "
+        src=".././image-23.png "
         alt="landing-page-img"
         className="md:w-3/5 w-full md:h-screen h-fit m-0  md:-z-10  bg-contain md:opacity-1 opacity-85
       "

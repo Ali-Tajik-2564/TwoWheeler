@@ -25,7 +25,7 @@ export default function AdminSideBar({ onSlideShow, setOnSlideShow }) {
       <div className=" w-full hidden lg:block  h-screen sticky top-0 right-0  bg-bgPrimary/60  text-right rounded-l-md">
         <div className="w-[97%] mx-auto border-b-2 border-bgPrimary  h-auto p-3 pb-2 flex items-center justify-between flex-row-reverse">
           <span className="text-xl font-semibold text-textPrimary">
-            روبیک مارکت
+            TwoWheeler
           </span>
         </div>
         <ul className="flex flex-col items-end justify-start  mt-3 text-right gap-y-4 w-full">
@@ -77,7 +77,7 @@ export default function AdminSideBar({ onSlideShow, setOnSlideShow }) {
                   onClick={() => handleClose()}
                   className="hover:text-gray-700 text-textPrimary p-1 cursor-pointer rounded-md border border-bgPrimary  shadow-sm w-8 h-8"
                 />
-                <img src=".././images/logo-1.png" className="w-24" alt="" />
+                <img src=".././logo-1.png" className="w-24" alt="" />
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body dir="rtl" className="primary-gradient">

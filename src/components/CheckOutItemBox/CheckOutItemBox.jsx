@@ -7,7 +7,7 @@ export default function CheckOutItemBox(id, item) {
       <Link to="/item/2'">
         <div className="w-52 h-60 flex flex-col items-start justify-center space-y-2 group m-4 p-2">
           <img
-            src="../../Img/unsplash_7GeprSfqLQ.png"
+            src=".././unsplash_7GeprSfqLQ.png"
             alt=""
             className="w-full h-full rounded-sm"
           />

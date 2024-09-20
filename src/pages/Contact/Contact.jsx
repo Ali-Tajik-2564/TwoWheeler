@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <div className="w-full h-auto flex md:flex-row flex-col-reverse p-0 ">
       <img
-        src="./Img/map.png"
+        src="./../map.png"
         alt=""
         className="md:w-1/2 w-full  md:h-auto h-fit bg-contain"
       />

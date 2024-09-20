@@ -166,13 +166,13 @@ export default function UserPanel() {
             </ul>
             {userData[0]?.profile ? (
               <img
-                src={`../../Img/${userData[0]?.profile}`}
+                src={`.././${userData[0]?.profile}`}
                 alt=""
                 className="rounded-full w-64 h-auto bg-contain "
               />
             ) : (
               <img
-                src="../../Img/noProfileIcon.png"
+                src=".././noProfileIcon.png"
                 alt=""
                 className="rounded-full w-64 h-auto bg-contain "
               />
@@ -230,13 +230,13 @@ export default function UserPanel() {
           <div className="w-full h-auto max-lg:flex flex-col justify-center item-center py-10 mb-5  hidden space-y-8">
             {userData[0]?.profile ? (
               <img
-                src={`../../Img/${userData[0]?.profile}`}
+                src={`.././${userData[0]?.profile}`}
                 alt=""
                 className="rounded-full w-64 h-auto bg-contain mx-auto"
               />
             ) : (
               <img
-                src="../../Img/noProfileIcon.png"
+                src=".././noProfileIcon.png"
                 alt=""
                 className="rounded-full w-64 h-auto bg-contain mx-auto"
               />

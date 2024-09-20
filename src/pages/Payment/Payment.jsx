@@ -66,7 +66,7 @@ export default function Payment() {
             </div>
             <div className="w-auto h-auto flex space-x-2 items-end ">
               <img
-                src="../../Img/Apple_Card.svg.png"
+                src=".././Apple_Card.svg.png"
                 alt=""
                 className="bg-contain w-auto h-5"
                 htmlFor="input"
@@ -76,7 +76,7 @@ export default function Payment() {
             </div>
             <div className="w-auto h-auto flex space-x-2 items-end ">
               <img
-                src="../../Img/PayPal.svg.png"
+                src=".././PayPal.svg.png"
                 alt=""
                 className="bg-contain w-auto h-5"
                 htmlFor="input"
@@ -113,22 +113,20 @@ export default function Payment() {
 
               <Dropdown.Menu>
                 <Dropdown.Item
-                  onClick={() =>
-                    setBankName('../../Img/mastercard.256x153.png')
-                  }>
+                  onClick={() => setBankName('.././mastercard.256x153.png')}>
                   <img
-                    src="../../Img/mastercard.256x153.png"
+                    src=".././mastercard.256x153.png"
                     alt=""
                     className="h-8"
                   />
                 </Dropdown.Item>
                 <Dropdown.Item
-                  onClick={() => setBankName('../../Img/PayPal.svg.png')}>
-                  <img src="../../Img/PayPal.svg.png" alt="" className="h-4" />
+                  onClick={() => setBankName('.././PayPal.svg.png')}>
+                  <img src=".././PayPal.svg.png" alt="" className="h-4" />
                 </Dropdown.Item>
                 <Dropdown.Item
-                  onClick={() => setBankName('../../Img/visa.256x79.png')}>
-                  <img src="../../Img/visa.256x79.png" alt="" className="h-4" />
+                  onClick={() => setBankName('.././visa.256x79.png')}>
+                  <img src=".././visa.256x79.png" alt="" className="h-4" />
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
