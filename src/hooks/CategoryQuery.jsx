@@ -9,5 +9,6 @@ export default function categoryQuery() {
         .then((res) => res.json())
         .then((result) => result);
     },
+    refetchInterval: 2000,
   });
 }

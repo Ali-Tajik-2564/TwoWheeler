@@ -16,17 +16,17 @@ import brandQuery from '../../hooks/brandQuery.jsx';
 export default function Item() {
   const urlParam = useParams();
   const { data: BrandData } = brandQuery();
-  const { data: productData, isFetched } = productQuery();
+  const { data: productData, isSuccess } = productQuery();
   let product = productData?.filter((product) => product.id === urlParam.id);
   let brand;
   {
-    isFetched &&
+    isSuccess &&
       (brand = BrandData?.filter((brand) => brand.name === product[0]?.brand));
   }
 
   return (
     <div className="flex flex-col items-start justify-center bg-white p-5 space-y-5">
-      {isFetched ? (
+      {isSuccess ? (
         <>
           <div className=" w-full h-full flex md:flex-row flex-col item-center justify-between   space-x-4 space-y-4">
             {/* Slider  */}
@@ -36,11 +36,9 @@ export default function Item() {
                   pagination={true}
                   modules={[Pagination]}
                   className="mySwiper md:h-full h-auto md:w-full w-4/5 ">
-                  {product[0]?.pics.map((pic) => (
-                    <SwiperSlide>
-                      <img src={`../${pic}`} alt="" />
-                    </SwiperSlide>
-                  ))}
+                  <SwiperSlide>
+                    <img src={`../${product[0]?.pics}`} alt="" />
+                  </SwiperSlide>
                 </Swiper>
               </div>
 
@@ -54,13 +52,13 @@ export default function Item() {
             <div className="md:w-3/5 w-full h-auto relative  md:px-16 px-3 py-7 space-y-16">
               {/* Info  */}
               <img
-                src={brand[0]?.icon}
+                src={`../${brand[0]?.icon}`}
                 alt=""
                 className="absolute   opacity-80 bg-contain w-auto h-auto"
               />
               <div className="w-full h-full relative">
                 <div
-                  className={`w-full h-full flex flex-col  items-start justify-evenly space-y-10  text-bgPrimary  bg-[url('${brand[0]?.icon}')] bg-contain  bg-center bg-opacity-75 bg-no-repeat`}>
+                  className={`w-full h-full flex flex-col  items-start justify-evenly space-y-10  text-bgPrimary  bg-[url('../${brand[0]?.icon}')] bg-contain  bg-center bg-opacity-75 bg-no-repeat`}>
                   <p className="text-3xl font-bold ">
                     {product[0]?.brand} {product[0]?.name} (
                     {product[0]?.dateOfProduction})

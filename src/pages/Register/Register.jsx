@@ -57,7 +57,7 @@ export default function Register() {
           email: Email,
           password: Password,
           profile: '',
-          orderHistory: [],
+
           roll: 'user',
         });
       })

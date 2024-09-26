@@ -8,7 +8,6 @@ import React from 'react';
 import PrivatePAdmin from './components/Private/PrivatePAdmin';
 import Blog from './pages/Blog/Blog';
 import BlogList from './pages/Blog/BlogList';
-import CheckOut from './pages/CheckOut/CheckOut';
 import Contact from './pages/Contact/Contact';
 import Item from './pages/Item/Item';
 import Landing from './pages/Landing/Landing';

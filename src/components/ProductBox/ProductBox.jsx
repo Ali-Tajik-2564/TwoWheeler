@@ -12,11 +12,7 @@ export default function ProductBox({
 }) {
   return (
     <div className="text-textPrimary w-72 h-auto p-3 rounded-md bg-bgPrimary flex flex-col items-start justify-start space-y-3  hover:bg-bgPrimary/80">
-      <img
-        src={`../${pics[0]}`}
-        alt=""
-        className="w-full h-auto rounded-md   "
-      />
+      <img src={`../${pics}`} alt="" className="w-full h-auto rounded-md   " />
       <div className="w-full h-auto flex items-start flex-col justify-between space-y-3">
         {/* header  */}
         <div className="w-full flex items-start justify-between">

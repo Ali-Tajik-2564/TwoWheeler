@@ -22,12 +22,7 @@ function App() {
 
   const [userInfo, setUserInfo] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
-  useEffect(() => {
-    fetch('https://twowheeler-backend.liara.run/product')
-      .then((res) => res.json())
-      .then((result) => console.log(result));
-  }, []);
-  const GetUser = () => {};
+
   const login = (userInfo, id) => {
     setUserId(id);
 
@@ -45,7 +40,7 @@ function App() {
     const localStorageData = JSON.parse(localStorage.getItem('user'));
 
     if (localStorageData) {
-      fetch(`http://localhost:3000/users?id=${localStorageData}`)
+      fetch(`https://twowheeler-backend.liara.run/users?id=${localStorageData}`)
         .then((res) => res.json())
         .then((userData) => {
           setIsLoggedIn(true);
@@ -54,7 +49,6 @@ function App() {
     } else {
       setIsLoggedIn(false);
     }
-    GetUser();
   }, [login, logout]);
   return (
     <>

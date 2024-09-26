@@ -10,7 +10,7 @@ export default function Payment() {
   const userID = JSON.parse(localStorage.getItem('user'));
   const urlParam = useParams();
   const { data: userData } = usersQuery(userID);
-  const { data: productData } = productQuery();
+  const { data: productData, isSuccess } = productQuery();
   const product = productData?.filter((product) => product?.id === urlParam.id);
   const { mutate: orderSubmitMutate } = orderSubmitQuery();
   const [bankName, setBankName] = useState();
@@ -53,146 +53,149 @@ export default function Payment() {
 
   return (
     <div className="w-full h-auto flex flex-col-reverse lg:flex-row item-center justify-between lg:p-14 p-3 bg-white lg:space-y-0 space-y-5 lg:space-x-10">
-      <div className="lg:w-2/5 md:w-4/5 w-full h-full flex flex-col items-start justify-between p-4 space-y-12">
-        {/* payment method  */}
-        <div className="flex w-full flex-col items-start space-y-3">
-          <p className="text-2xl font-medium ">Payment Method</p>
-          <div className="w-full h-auto flex flex-row   justify-evenly items-start">
-            <div className="w-auto h-auto flex space-x-2 items-center ">
-              <label htmlFor="input" className="text-base font-light">
-                Credit Cart
-              </label>
-              <input type="radio" name="Payment-info" checked="true" />
-            </div>
-            <div className="w-auto h-auto flex space-x-2 items-end ">
-              <img
-                src=".././Apple_Card.svg.png"
-                alt=""
-                className="bg-contain w-auto h-5"
-                htmlFor="input"
-              />
-
-              <input type="radio" name="Payment-info" />
-            </div>
-            <div className="w-auto h-auto flex space-x-2 items-end ">
-              <img
-                src=".././PayPal.svg.png"
-                alt=""
-                className="bg-contain w-auto h-5"
-                htmlFor="input"
-              />
-
-              <input type="radio" name="Payment-info" />
-            </div>
-          </div>
-        </div>
-        {/* payment method  */}
-        {/* payment details  */}
-        <div className="w-full h-full  flex flex-col items-start space-y-8">
-          <p className="text-2xl font-medium ">Payment Details</p>
-
-          <input
-            type="text"
-            placeholder="Name "
-            className="focus:ring-0 focus:outline-none md:w-4/5 w-full text-bgPrimary font-medium text-lg border-b-2 border-bgPrimary/30  bg-none"
-            value={fullNameInput}
-            onChange={(event) => setFullName(event.target.value)}
-          />
-          <div className="flex  md:w-4/5 w-full h-auto items-end justify-start border-b-2 border-bgPrimary/30 p-2">
-            <Dropdown>
-              <Dropdown.Toggle
-                id="dropdown-basic"
-                className=" focus:ring-0 focus:outline-none w-auto  h-8  border-none  bg-none text-bgPrimary/50 font-medium text-lg ring-0 outline-none "
-                variant="none">
-                {bankName ? (
-                  <img src={bankName} alt="" className="h-8" />
-                ) : (
-                  'Bank Name'
-                )}
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item
-                  onClick={() => setBankName('.././mastercard.256x153.png')}>
+      {isSuccess && product !== null && (
+        <>
+          <div className="lg:w-2/5 md:w-4/5 w-full h-full flex flex-col items-start justify-between p-4 space-y-12">
+            {/* payment method  */}
+            <div className="flex w-full flex-col items-start space-y-3">
+              <p className="text-2xl font-medium ">Payment Method</p>
+              <div className="w-full h-auto flex flex-row   justify-evenly items-start">
+                <div className="w-auto h-auto flex space-x-2 items-center ">
+                  <label htmlFor="input" className="text-base font-light">
+                    Credit Cart
+                  </label>
+                  <input type="radio" name="Payment-info" checked="true" />
+                </div>
+                <div className="w-auto h-auto flex space-x-2 items-end ">
                   <img
-                    src=".././mastercard.256x153.png"
+                    src=".././Apple_Card.svg.png"
                     alt=""
-                    className="h-8"
+                    className="bg-contain w-auto h-5"
+                    htmlFor="input"
                   />
-                </Dropdown.Item>
-                <Dropdown.Item
-                  onClick={() => setBankName('.././PayPal.svg.png')}>
-                  <img src=".././PayPal.svg.png" alt="" className="h-4" />
-                </Dropdown.Item>
-                <Dropdown.Item
-                  onClick={() => setBankName('.././visa.256x79.png')}>
-                  <img src=".././visa.256x79.png" alt="" className="h-4" />
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-            <input
-              type="text"
-              placeholder="Number "
-              className="focus:ring-0 focus:outline-none w-full text-bgPrimary font-medium text-lg border-l border-bgPrimary/50  px-2  bg-none"
-              value={cardNumber}
-              onChange={(event) => SetCardNumber(event.target.value)}
-            />
-          </div>
-          <div className="flex w-full h-auto  items-start justify-between   ">
-            <div className="flex flex-col items-start justify-start space-y-6 w-1/2">
-              <p className="text-bgPrimary/70 font-medium text-xl">
-                Expiration
-              </p>
-              <input
-                type="date"
-                name="Expiration Date"
-                className="focus:ring-0 focus:outline-none  text-bgPrimary/70 font-medium text-lg border-b-2 border-bgPrimary/30  bg-none w-auto"
-                value={ExpDate}
-                onChange={(event) => setExpDate(event.target.value)}
-              />
-            </div>
 
-            <div className="flex flex-col items-start justify-start space-y-6 w-1/2">
-              <p className="text-bgPrimary/70 font-medium text-xl">CVV</p>
+                  <input type="radio" name="Payment-info" />
+                </div>
+                <div className="w-auto h-auto flex space-x-2 items-end ">
+                  <img
+                    src=".././PayPal.svg.png"
+                    alt=""
+                    className="bg-contain w-auto h-5"
+                    htmlFor="input"
+                  />
+
+                  <input type="radio" name="Payment-info" />
+                </div>
+              </div>
+            </div>
+            {/* payment method  */}
+            {/* payment details  */}
+            <div className="w-full h-full  flex flex-col items-start space-y-8">
+              <p className="text-2xl font-medium ">Payment Details</p>
+
               <input
                 type="text"
-                name="CVV"
-                placeholder="nnn"
-                className="focus:ring-0 focus:outline-none w-3/4 text-bgPrimary/70 font-medium text-lg border-b-2 border-bgPrimary/30  bg-none"
-                value={cvv}
-                onChange={(event) => setCvv(event.target.value)}
+                placeholder="Name "
+                className="focus:ring-0 focus:outline-none md:w-4/5 w-full text-bgPrimary font-medium text-lg border-b-2 border-bgPrimary/30  bg-none"
+                value={fullNameInput}
+                onChange={(event) => setFullName(event.target.value)}
               />
-            </div>
-          </div>
-        </div>
-        {/* payment details  */}
-        {/* payment RUle /  */}
-        <p className="text-bgPrimary font-medium text-base line-clamp-2">
-          By clicking “Confirm Payment”, you agree to our store regulations.
-        </p>
-        {/* payment RUle /  */}
-        {/* payment buttons */}
-        <div className="flex flex-row   items-start justify-between   w-full h-auto ">
-          <button
-            onClick={SubmitOrder}
-            className=" md:w-48 w-auto px-4 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base  text-center">
-            Confirm Payment
-          </button>
-          <button
-            className=" md:w-48 w-auto px-4  p-2  text-center rounded-md border-1 border-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-Bold text-base duration-150 "
-            onClick={() => history.go(-1)}>
-            Cancel
-          </button>
-        </div>
-        {/* payment buttons */}
-      </div>
+              <div className="flex  md:w-4/5 w-full h-auto items-end justify-start border-b-2 border-bgPrimary/30 p-2">
+                <Dropdown>
+                  <Dropdown.Toggle
+                    id="dropdown-basic"
+                    className=" focus:ring-0 focus:outline-none w-auto  h-8  border-none  bg-none text-bgPrimary/50 font-medium text-lg ring-0 outline-none "
+                    variant="none">
+                    {bankName ? (
+                      <img src={bankName} alt="" className="h-8" />
+                    ) : (
+                      'Bank Name'
+                    )}
+                  </Dropdown.Toggle>
 
-      {/* item info  */}
-      {product && (
-        <>
+                  <Dropdown.Menu>
+                    <Dropdown.Item
+                      onClick={() =>
+                        setBankName('.././mastercard.256x153.png')
+                      }>
+                      <img
+                        src=".././mastercard.256x153.png"
+                        alt=""
+                        className="h-8"
+                      />
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => setBankName('.././PayPal.svg.png')}>
+                      <img src=".././PayPal.svg.png" alt="" className="h-4" />
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => setBankName('.././visa.256x79.png')}>
+                      <img src=".././visa.256x79.png" alt="" className="h-4" />
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                <input
+                  type="text"
+                  placeholder="Number "
+                  className="focus:ring-0 focus:outline-none w-full text-bgPrimary font-medium text-lg border-l border-bgPrimary/50  px-2  bg-none"
+                  value={cardNumber}
+                  onChange={(event) => SetCardNumber(event.target.value)}
+                />
+              </div>
+              <div className="flex w-full h-auto  items-start justify-between   ">
+                <div className="flex flex-col items-start justify-start space-y-6 w-1/2">
+                  <p className="text-bgPrimary/70 font-medium text-xl">
+                    Expiration
+                  </p>
+                  <input
+                    type="date"
+                    name="Expiration Date"
+                    className="focus:ring-0 focus:outline-none  text-bgPrimary/70 font-medium text-lg border-b-2 border-bgPrimary/30  bg-none w-auto"
+                    value={ExpDate}
+                    onChange={(event) => setExpDate(event.target.value)}
+                  />
+                </div>
+
+                <div className="flex flex-col items-start justify-start space-y-6 w-1/2">
+                  <p className="text-bgPrimary/70 font-medium text-xl">CVV</p>
+                  <input
+                    type="text"
+                    name="CVV"
+                    placeholder="nnn"
+                    className="focus:ring-0 focus:outline-none w-3/4 text-bgPrimary/70 font-medium text-lg border-b-2 border-bgPrimary/30  bg-none"
+                    value={cvv}
+                    onChange={(event) => setCvv(event.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+            {/* payment details  */}
+            {/* payment RUle /  */}
+            <p className="text-bgPrimary font-medium text-base line-clamp-2">
+              By clicking “Confirm Payment”, you agree to our store regulations.
+            </p>
+            {/* payment RUle /  */}
+            {/* payment buttons */}
+            <div className="flex flex-row   items-start justify-between   w-full h-auto ">
+              <button
+                onClick={SubmitOrder}
+                className=" md:w-48 w-auto px-4 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold md:text-base text-sm  text-center">
+                Confirm Payment
+              </button>
+              <button
+                className=" md:w-48 w-auto px-4  p-2  text-center rounded-md border-1 border-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-Bold md:text-base text-sm duration-150 "
+                onClick={() => history.go(-1)}>
+                Cancel
+              </button>
+            </div>
+            {/* payment buttons */}
+          </div>
+
+          {/* item info  */}
+
           <div className="lg:w-2/5 w-96  h-auto relative rounded-2xl overflow-hidden Payment-Box-Shadow  max-lg:mx-auto">
             <img
-              src={`../${product[0]?.pics[0]}`}
+              src={`../${product[0]?.pics}`}
               alt=""
               className="w-full h-full bg-contain
         rounded-lg -z-20 "
@@ -214,10 +217,10 @@ export default function Payment() {
               </div>
             </div>
           </div>
+
+          {/* item info  */}
         </>
       )}
-
-      {/* item info  */}
     </div>
   );
 }

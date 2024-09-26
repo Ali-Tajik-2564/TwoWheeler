@@ -9,5 +9,6 @@ export default function brandQuery() {
         .then((res) => res.json())
         .then((result) => result);
     },
+    refetchInterval: 2000,
   });
 }

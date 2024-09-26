@@ -61,7 +61,7 @@ export default function Headers() {
                   ) : (
                     <>
                       <img
-                        src={`.././${authContext.userInfo[0]?.profile}`}
+                        src={`../${authContext.userInfo[0]?.profile}`}
                         className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
                       />
                     </>
@@ -122,7 +122,7 @@ export default function Headers() {
               ) : (
                 <>
                   <img
-                    src={`.././${authContext.userInfo[0]?.profile}`}
+                    src={`../${authContext.userInfo[0]?.profile}`}
                     className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
                   />
                 </>
