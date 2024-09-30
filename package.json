@@ -18,6 +18,7 @@
     "bootstrap": "^5.3.3",
     "ckeditor5": "^43.0.0",
     "ckeditor5-premium-features": "^43.0.0",
+    "dompurify": "^3.1.7",
     "formik": "^2.4.6",
     "git": "^0.1.5",
     "json-server": "^1.0.0-alpha.21",

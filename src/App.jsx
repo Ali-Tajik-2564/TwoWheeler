@@ -32,6 +32,7 @@ function App() {
     localStorage.setItem('user', JSON.stringify(id));
   };
   const logout = useCallback(() => {
+    setIsLoggedIn(false);
     setUserId(null);
     setUserInfo(null);
     localStorage.removeItem('user');

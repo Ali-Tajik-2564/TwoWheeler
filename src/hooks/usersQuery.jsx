@@ -105,6 +105,7 @@ const editProfileImg = () => {
 };
 const UserRegisterQuery = () => {
   const authContext = useContext(AuthContext);
+
   return useMutation({
     mutationFn: (user) => {
       fetch('https://twowheeler-backend.liara.run/users', {
@@ -114,8 +115,7 @@ const UserRegisterQuery = () => {
       })
         .then((res) => res.json())
         .then((result) => {
-          authContext.login({}, result.id);
-          navigate;
+          authContext.login(result, result.id);
         });
     },
   });

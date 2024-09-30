@@ -12,7 +12,7 @@ export default function LandingIntro() {
           such as Honda, Kawasaki, Yamaha, Ducati, etc. We will give the best
           price you can get and great quality motorcycle.
         </p>
-        <Link to="./motorcycle-show">
+        <Link to="./motorcycle-show/1">
           <button
             className="lg:text-xl text-lg font-bold  border-b border-textPrimary p-1
           ">

@@ -22,10 +22,11 @@ export default function Item() {
   {
     isSuccess &&
       (brand = BrandData?.filter((brand) => brand.name === product[0]?.brand));
+    console.log(brand);
   }
 
   return (
-    <div className="flex flex-col items-start justify-center bg-white p-5 space-y-5">
+    <div className="flex flex-col items-start justify-center bg-white p-3 space-y-5">
       {isSuccess ? (
         <>
           <div className=" w-full h-full flex md:flex-row flex-col item-center justify-between   space-x-4 space-y-4">
@@ -80,14 +81,14 @@ export default function Item() {
                   <p className="text-lg font-normal">
                     Stock: {product[0]?.stock}
                   </p>
-                  <div className="w-full h-auto flex item-center justify-between space-x-4">
+                  <div className="w-full h-auto flex item-center justify-between space-x-2">
                     <Link
                       to={`/Payment-info/${product[0]?.id}`}
-                      className="ml-auto md:w-44 w-auto px-4 h-10 p-2 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base ">
+                      className="ml-auto md:w-44 w-1/2  h-10 py-3 text-center rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold md:text-base text-xs ">
                       Add to Card
                     </Link>
                     <button
-                      className="ml-auto md:w-44 w-auto px-4 h-10 p-2  md:hidden text-center rounded-md border-2 border-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-base duration-150 "
+                      className="ml-auto md:w-44 w-1/2 px-4 h-10 p-1  md:hidden text-center rounded-md border-2 border-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold md:text-base text-xs duration-150 "
                       onClick={() => history.go(-1)}>
                       Back to Showroom
                     </button>

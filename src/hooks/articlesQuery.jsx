@@ -19,17 +19,21 @@ const articlesQuery = (id) => {
     queryFn: () => {
       return fetch('https://twowheeler-backend.liara.run/article')
         .then((res) => res.json())
-        .then((result) => result);
+        .then((result) => {
+          console.log("result " , result);
+          return result 
+          
+        });
     },
 
     select: (data) => {
       if (id) {
-        return data.filter((article) => article.id === id);
+        return data?.filter((article) => article.id === id);
       } else {
         return data;
       }
     },
-    refetchInterval: 2000,
+    refetchInterval: 1500,
   });
 };
 const editPublishQuery = () => {

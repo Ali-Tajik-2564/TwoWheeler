@@ -88,7 +88,9 @@ export default function UserPanel() {
       confirmButtonText: 'thank you',
     }).then((result) => {
       authContext.logout();
-      navigate('/');
+      if (result.isConfirmed) {
+        navigate('/');
+      }
     });
   };
   const PasswordEdit = () => {

@@ -1,14 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { articlesQuery } from '../../hooks/articlesQuery';
-
+import DOMPurify from 'dompurify';
 export default function Blog() {
   const articleID = useParams();
-  const { data, isSuccess, isStale } = articlesQuery(articleID.id);
+
+  const { data, isSuccess, isLoading } = articlesQuery(articleID.id);
+  console.log('data log blog ', data);
 
   return (
     <div className="bg-article-page bg-cover  w-full h-auto flex item-center justify-center py-5 ">
-      {isStale && (
+      {isSuccess && isLoading !== true && (
         <div className="md:w-4/5 w-10/12 h-auto bg-white/70  px-4 py-7   flex flex-col item-center space-y-10">
           <img
             src={`../${data[0]?.pic}`}
@@ -22,9 +24,11 @@ export default function Blog() {
             <p className="md:text-xl text-lg font-semibold text-bgPrimary">
               {data[0]?.desc}
             </p>
-            <p className="md:text-lg text-base font-medium text-bgPrimary ">
-              {data[0]?.body}
-            </p>
+            <p
+              className="md:text-lg text-base font-medium text-bgPrimary "
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(data[0]?.body),
+              }}></p>
           </div>
         </div>
       )}

@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoMdMail } from 'react-icons/io';
+import Swal from 'sweetalert2';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { IoLocationSharp } from 'react-icons/io5';
 export default function Contact() {
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();
+  const messageSubmit = () => {
+    if (name && email && message) {
+      Swal.fire({
+        title: 'your message submitted successfully',
+        icon: 'success',
+      }).then(() => {
+        setName('');
+        setEmail('');
+        setMessage('');
+      });
+    } else {
+      Swal.fire({
+        title: 'please fill all inputs then submit',
+        icon: 'warning',
+      });
+    }
+  };
   return (
     <div className="w-full h-auto flex md:flex-row flex-col-reverse p-0 ">
       <img
@@ -39,18 +60,26 @@ export default function Contact() {
             type="text"
             placeholder="Full Name"
             className="w-full p-2 text-lg font-medium text-bgPrimary/50 shadow-md border-2 border-bgPrimary/20   rounded-md outline-none ring-0 focus:ring-0 focus:outline-none"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             type="text"
             placeholder="Email"
             className="w-full p-2 text-lg font-medium text-bgPrimary/50 shadow-md border-2 border-bgPrimary/20   rounded-md outline-none ring-0 focus:ring-0 focus:outline-none"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <textarea
             placeholder="Message"
             className="w-full h-fit p-2 text-lg font-medium text-bgPrimary/50 shadow-md border-2 border-bgPrimary/20   rounded-md outline-none ring-0 focus:ring-0 focus:outline-none"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <button className="mr-auto w-36  p-1 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-lg ">
+        <button
+          onClick={messageSubmit}
+          className="mr-auto w-36  p-1 rounded-md bg-textPrimary hover:bg-textPrimary/90 text-bgPrimary font-semibold text-lg ">
           Send
         </button>
       </div>
