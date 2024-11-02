@@ -15,25 +15,27 @@ import {
 
 import AuthContext from './Contexts/AuthContext';
 import { useCallback, useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 function App() {
   const router = useRoutes(routes);
   const queryClient = new QueryClient();
-  const [userId, setUserId] = useState(null);
+  const [userId, setUserID] = useState(null);
 
   const [userInfo, setUserInfo] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
-  const login = (userInfo, id) => {
-    setUserId(id);
+  const login = (id, userInfo) => {
+    setUserID(id);
 
     setUserInfo(userInfo);
-    setIsLoggedIn(true);
 
     localStorage.setItem('user', JSON.stringify(id));
+
+    setIsLoggedIn(true);
   };
   const logout = useCallback(() => {
     setIsLoggedIn(false);
-    setUserId(null);
+    setUserID(null);
     setUserInfo(null);
     localStorage.removeItem('user');
   }, []);
@@ -51,6 +53,7 @@ function App() {
       setIsLoggedIn(false);
     }
   }, [login, logout]);
+
   return (
     <>
       <QueryClientProvider client={queryClient}>

@@ -20,9 +20,7 @@ const articlesQuery = (id) => {
       return fetch('https://twowheeler-backend.liara.run/article')
         .then((res) => res.json())
         .then((result) => {
-          console.log("result " , result);
-          return result 
-          
+          return result;
         });
     },
 

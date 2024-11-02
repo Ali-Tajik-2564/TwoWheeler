@@ -40,7 +40,9 @@ export default function Login() {
   const LoginUser = (event) => {
     event.preventDefault();
 
-    fetch(`https://twowheeler-backend.liara.run/users?email=${Email}&password=${Password}`)
+    fetch(
+      `https://twowheeler-backend.liara.run/users?email=${Email}&password=${Password}`
+    )
       .then((res) => res.json())
       .then((result) => {
         if (result.length !== 0) {
@@ -70,7 +72,7 @@ export default function Login() {
     }
   };
   const forgottenPassword = () => {
-    console.log('forgot');
+    console.log("your password is '' ");
   };
 
   return (

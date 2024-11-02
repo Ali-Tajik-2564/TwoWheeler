@@ -51,7 +51,7 @@ export default function Headers() {
               {/* login */}
               {authContext.isLoggedIn ? (
                 <Link to={'/admin-panel'} onClick={handleClose}>
-                  {authContext.userInfo[0]?.profile === '' ? (
+                  {authContext.userInfo?.profile === '' ? (
                     <>
                       <img
                         src=".././noProfileIcon.png"
@@ -61,7 +61,7 @@ export default function Headers() {
                   ) : (
                     <>
                       <img
-                        src={`../${authContext.userInfo[0]?.profile}`}
+                        src={`.././${authContext.userInfo?.profile}`}
                         className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
                       />
                     </>
@@ -112,7 +112,7 @@ export default function Headers() {
           {/* login */}
           {authContext.isLoggedIn ? (
             <Link to={'/admin-panel'} onClick={handleClose}>
-              {authContext.userInfo[0]?.profile === '' ? (
+              {authContext.userInfo?.profile === '' ? (
                 <>
                   <img
                     src=".././noProfileIcon.png"
@@ -122,7 +122,7 @@ export default function Headers() {
               ) : (
                 <>
                   <img
-                    src={`../${authContext.userInfo[0]?.profile}`}
+                    src={`.././${authContext.userInfo?.profile}`}
                     className=" border-1 border-textPrimary w-20   rounded-full shadow-sm  hover:brightness-90 "
                   />
                 </>

@@ -16,9 +16,11 @@ export default function Register() {
   const [FullName, setFullName] = useState(null);
   const [Email, setEmail] = useState(null);
   const [Password, setPassword] = useState(null);
+  const { usersData, isSuccess } = usersQuery();
+
   const authContext = useContext(AuthContext);
   const { mutate: userMutate } = UserRegisterQuery();
-
+  let id = crypto.randomUUID().slice(0, 6);
   const InputValidation = async (event) => {
     event.preventDefault();
     let user = {
@@ -52,6 +54,7 @@ export default function Register() {
     })
       .then(() => {
         userMutate({
+          id,
           fullName: FullName,
           email: Email,
           password: Password,
@@ -59,9 +62,19 @@ export default function Register() {
 
           roll: 'user',
         });
+        authContext.login(id, {
+          id,
+          fullName: FullName,
+          email: Email,
+          password: Password,
+          profile: '',
+
+          roll: 'user',
+        });
+        setIsRegistered(true);
       })
       .then(() => {
-        setIsRegistered(true);
+        // let userData = usersData?.filter((user) => user.email === Email);
       });
   };
 

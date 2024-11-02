@@ -104,19 +104,20 @@ const editProfileImg = () => {
   });
 };
 const UserRegisterQuery = () => {
-  const authContext = useContext(AuthContext);
-
   return useMutation({
-    mutationFn: (user) => {
+    mutationFn: (data) => {
       fetch('https://twowheeler-backend.liara.run/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          authContext.login(result, result.id);
-        });
+        body: JSON.stringify({
+          id: data.id,
+          fullName: data.fullName,
+          email: data.email,
+          password: data.password,
+          profile: '',
+          roll: 'user',
+        }),
+      }).then((res) => res.json());
     },
   });
 };
